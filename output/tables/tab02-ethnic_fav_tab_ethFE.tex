@@ -1,0 +1,35 @@
+\begin{table}[!h]
+
+\caption{Ethnic favoritism results \label{tab:eth}}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{threeparttable}
+\begin{tabular}[t]{lccccc}
+\toprule
+  & \specialcell{(1) \\ Schooling} & \specialcell{(2) \\ Infant Survival} & \specialcell{(3) \\ Wealth} & \specialcell{(4) \\ Electrification} & \specialcell{(5) \\ Clean Water}\\
+\midrule
+Coethnic & \num{-0.04} & \num{0.00} & \num{0.00} & \num{0.04}*** & \num{-0.03}\\
+ & (\num{0.02}) & (\num{0.00}) & (\num{0.02}) & (\num{0.02}) & (\num{0.03})\\
+\midrule
+Mean & \num{0.65} & \num{0.91} & \num{0.27} & \num{0.35} & \num{0.22}\\
+N & \num{1146305} & \num{2516753} & \num{756737} & \num{822353} & \num{822353}\\
+Birth Year FE & X & X & X & X & X\\
+Age FE & X & X & X & X & X\\
+Country Specific Ethnic Group FE & X & X & X & X & X\\
+\bottomrule
+\multicolumn{6}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\begin{tablenotes}
+\item[1] \footnotesize{In this table, I am reporting the estimates of equation \ref{eqFR1}. 
+                      I present the results of the effect of ethnic favoritism on primary school completions 
+                      in column 1, infant survival in column 2, wealth quintile in column 3, electrification in 
+                      column 4 and access to clean drinking water in column 4. Primary school completion is a 
+                      dummy variable that is equal to one if a person completed primary school and zero otherwise. 
+                      Infant survival is a dummy variable that is equal to one if an infant survived the first 12 
+                      months of life. Electrification is a dummy variable that is equal to one if a household 
+                      has electricity. Finally, access to clean drinking water is an ordinal variable that has 
+                      values from 1, worst water source, to 4.}
+\item[2] \footnotesize{Standard errors are clustered on country specific ethnic groups. All results include ethnic group, time and age fixed effects.}
+\end{tablenotes}
+\end{threeparttable}}
+\end{table}

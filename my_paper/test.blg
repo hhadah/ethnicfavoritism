@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: test.aux
+The style file: chicago-bib.bst
+Database file #1: ethnicfav.bib
+Repeated entry---line 127 of file ethnicfav.bib
+ : @article{fearon2007ethnic
+ :                          ,
+I'm skipping whatever remains of this entry
+Warning--no number and no volume in AlesinaAlberto2016Ei
+Warning--no number and no volume in batha_2000
+Warning--page numbers missing in batha_2000
+Warning--page numbers missing in golden2013distributive
+Warning--no number and no volume in kudamatsu2009ethnic
+Warning--page numbers missing in kudamatsu2009ethnic
+Warning--no journal in worldbank
+Warning--no number and no volume in worldbank
+Warning--page numbers missing in worldbank
+You've used 62 entries,
+            2845 wiz_defined-function locations,
+            971 strings with 14299 characters,
+and the built_in function-call counts, 41728 in all, are:
+= -- 3593
+> -- 2928
+< -- 2
++ -- 872
+- -- 1023
+* -- 3700
+:= -- 7668
+add.period$ -- 186
+call.type$ -- 62
+change.case$ -- 434
+chr.to.int$ -- 60
+cite$ -- 71
+duplicate$ -- 1077
+empty$ -- 2529
+format.name$ -- 1173
+if$ -- 7639
+int.to.chr$ -- 3
+int.to.str$ -- 0
+missing$ -- 65
+newline$ -- 311
+num.names$ -- 616
+pop$ -- 299
+preamble$ -- 1
+purify$ -- 806
+quote$ -- 0
+skip$ -- 1163
+stack$ -- 0
+substring$ -- 2490
+swap$ -- 314
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1182
+warning$ -- 9
+while$ -- 641
+width$ -- 0
+write$ -- 809
+(There was 1 error message)

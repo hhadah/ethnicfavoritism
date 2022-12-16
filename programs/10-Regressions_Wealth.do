@@ -6,14 +6,12 @@ regressions from my analysis
 * Third, Wealth
 clear
 cls
-set matsize 11000
-global RegressionResults "/Users/hhadah/Dropbox/EthnicFav copy/Analysis/Regressions_and_Results"
-global WealthData "/Users/hhadah/Dropbox/EthnicFav copy/Analysis/MergedData/Wealth"
+
 * set working directory
 cd "$RegressionResults"
 
 * open data set
-use "$WealthData/DHS_Wealth.dta"
+use "$raw/DHS_Wealth.dta"
 ********************************************************************************
 ********************************************************************************
 * gen dummy variables for ethnicities by countries:
@@ -104,6 +102,37 @@ local PolityGroups Democracy Anocracy ClosedAnocracy
 local EthnicFEs "BeninEth1-ZimbabweEth6"
 // local RegionFEs "geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015"
 egen EthClusters = group(BeninEth1-ZimbabweEth6)
+
+* Gen wealth vars
+gen Poorest = .
+replace Poorest = 0 if wealthq != 1
+replace Poorest = 1 if wealthq == 1
+
+gen Poorer = .
+replace Poorer = 0 if wealthq != 2
+replace Poorer = 1 if wealthq == 2
+
+gen Middle = .
+replace Middle = 0 if wealthq != 3
+replace Middle = 1 if wealthq == 3
+
+gen Richer = .
+replace Richer = 0 if wealthq != 4
+replace Richer = 1 if wealthq == 4
+
+gen Richest = .
+replace Richest = 0 if wealthq != 5
+replace Richest = 1 if wealthq == 5
+
+* label variable
+label var female "Female"
+replace female = 0 if female != 1
+rename urban urban1
+gen urban = 0
+replace urban  = 1 if urban1 == 1
+drop urban1
+label var urban "Urban"
+save "$datasets/DHS_Wealth.dta", replace
 ********************************************************************************
 * Ethnic favoritism in Wealth 
 * with Country-Year fixed effects,
@@ -122,81 +151,81 @@ egen EthClusters = group(BeninEth1-ZimbabweEth6)
 * with country and birth 
 * year fixed effects and
 * ethnicity FE
-eststo did_ethfav_ethFE_w: 	reghdfe  	wealthq coethnic urban female 								, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
-eststo did_ethfav_dem_w: 	reghdfe		wealthq coethnic urban female 			if Democracy == 1	, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
-eststo did_ethfav_anoc_w: 	reghdfe 	wealthq coethnic urban female 			if Anocracy == 1	, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit  
-eststo did_ethfav_autoc_w: 	reghdfe 	wealthq coethnic urban female 			if Autocracy == 1	, absorb(i.birth_year  i.age) cluster(EthClusters) noomit  
-#delimit;
-coefplot 	(did_ethfav_dem_w, label(Democracy))
-			(did_ethfav_anoc_w, label(Anocracy)) 
-			(did_ethfav_autoc_w, label(Autocracy)),
-			aseq swapnames legend(off)
-			title("The Co-ethnic Effect on Wealth" "with Ethnic Groups and Time Fixed Effects by Democratic Group") 
-			keep(coethnic) xline(0, lcolor(red))
-			msymbol(O) msize(large) levels(90)
-			coeflabels(did_ethfav_dem_w = "Democracy"
-					   did_ethfav_anoc_w = "Anocracy"
-					   did_ethfav_autoc_w = "Autocracy");
-graph export coeth_byGroups3.png, replace;
- #delimit cr
-********************************************************************************
-********************************************************************************
-* Ethnic favoritism in education 
-* with ragion and birth 
-* year fixed effects and
-* ethnicity FE
-// foreach v of varlist geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015 {
-// replace `v' = 0 if missing(`v')
-// }
-//
-// eststo did_ethfav_region_w:xi: reg  wealthq coethnic urban female i.`RegionFEs' i.birth_year   i.age i.age5year, cluster(birth_year)
-// quietly estadd local fixedcountry "No", replace
-// quietly estadd local fixedyear "Yes", replace
-// quietly estadd local fixedcountry_year "No", replace
-// quietly estadd local regionFE "Yes", replace
-// quietly estadd local EthnicFE "No", replace
-// quietly estadd local clusterSE "Yes", replace
-// quietly estadd local Controls "Yes", replace
-********************************************************************************
-* regressions on interaction between democracy and Completed Primary Education
-********************************************************************************
-* Coethnicity and Democracy
-* with time-country FE
-********************************************************************************
-// eststo did_dem_counttime_w: xi: reg  wealthq $DemInterCoethVars $PolityGroups urban female coethnic i.cowcode_4*i.birth_year   i.age i.age5year, cluster(birth_year) noomit  
-// quietly estadd local fixedcountry "Yes", replace
-// quietly estadd local fixedyear "Yes", replace
-// quietly estadd local fixedcountry_year "Yes", replace
-// quietly estadd local regionFE "No", replace
-// quietly estadd local EthnicFE "No", replace
-// quietly estadd local clusterSE "Yes", replace
-// quietly estadd local Controls "Yes", replace
-********************************************************************************
-* Coethnicity and Democracy
-* with ethnicity FE
-********************************************************************************
-eststo did_dem_eth_w: reghdfe  wealthq $DemInterCoethVars $PolityGroups urban female coethnic, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
-********************************************************************************
-* Coethnicity and Democracy
-* with Regional FE
-********************************************************************************
-// eststo did_dem_reg_w:  xi: reg  wealthq $DemInterCoethVars $PolityGroups urban female coethnic i.`RegionFEs' i.birth_year  i.age i.age5year , cluster(birth_year)
-// quietly estadd local fixedcountry "No", replace
-// quietly estadd local fixedyear "Yes", replace
-// quietly estadd local fixedcountry_year "No", replace
-// quietly estadd local regionFE "Yes", replace
-// quietly estadd local EthnicFE "No", replace
-// quietly estadd local clusterSE "Yes", replace
-// quietly estadd local Controls "Yes", replace
-********************************************************************************
-*contin polity score regression
-********************************************************************************
-eststo did_contdem_w: reghdfe  wealthq inter_polity2_coethnic coethnic urban female Polity, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
-********************************************************************************
-* Democracy-Diictatorship index regression
-********************************************************************************
-* average democracy-diictatorship index
-gen Democracy_dem_dic = (democracy_4 + democracy_3 + democracy_2 + democracy_1)/4
-label var Democracy_dem_dic "Democracy"
-gen inter_dem_dic = Democracy_dem_dic*coethnic
-eststo Democracy_Wdemdic: reghdfe wealthq inter_dem_dic coethnic Democracy_dem_dic urban female, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+// eststo did_ethfav_ethFE_w: 	reghdfe  	Richest coethnic urban female 								, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
+// eststo did_ethfav_dem_w: 	reghdfe		Richest coethnic urban female 			if Democracy == 1	, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
+// eststo did_ethfav_anoc_w: 	reghdfe 	Richest coethnic urban female 			if Anocracy == 1	, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit  
+// eststo did_ethfav_autoc_w: 	reghdfe 	Richest coethnic urban female 			if Autocracy == 1	, absorb(i.birth_year  i.age) cluster(EthClusters) noomit  
+// #delimit;
+// coefplot 	(did_ethfav_dem_w, label(Democracy))
+// 			(did_ethfav_anoc_w, label(Anocracy)) 
+// 			(did_ethfav_autoc_w, label(Autocracy)),
+// 			aseq swapnames legend(off)
+// 			title("The Co-ethnic Effect on Wealth" "with Ethnic Groups and Time Fixed Effects by Democratic Group") 
+// 			keep(coethnic) xline(0, lcolor(red))
+// 			msymbol(O) msize(large) levels(90)
+// 			coeflabels(did_ethfav_dem_w = "Democracy"
+// 					   did_ethfav_anoc_w = "Anocracy"
+// 					   did_ethfav_autoc_w = "Autocracy");
+// graph export coeth_byGroups3.png, replace;
+//  #delimit cr
+// ********************************************************************************
+// ********************************************************************************
+// * Ethnic favoritism in education 
+// * with ragion and birth 
+// * year fixed effects and
+// * ethnicity FE
+// // foreach v of varlist geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015 {
+// // replace `v' = 0 if missing(`v')
+// // }
+// //
+// // eststo did_ethfav_region_w:xi: reg  Richest coethnic urban female i.`RegionFEs' i.birth_year   i.age i.age5year, cluster(birth_year)
+// // quietly estadd local fixedcountry "No", replace
+// // quietly estadd local fixedyear "Yes", replace
+// // quietly estadd local fixedcountry_year "No", replace
+// // quietly estadd local regionFE "Yes", replace
+// // quietly estadd local EthnicFE "No", replace
+// // quietly estadd local clusterSE "Yes", replace
+// // quietly estadd local Controls "Yes", replace
+// ********************************************************************************
+// * regressions on interaction between democracy and Completed Primary Education
+// ********************************************************************************
+// * Coethnicity and Democracy
+// * with time-country FE
+// ********************************************************************************
+// // eststo did_dem_counttime_w: xi: reg  Richest $DemInterCoethVars $PolityGroups urban female coethnic i.cowcode_4*i.birth_year   i.age i.age5year, cluster(birth_year) noomit  
+// // quietly estadd local fixedcountry "Yes", replace
+// // quietly estadd local fixedyear "Yes", replace
+// // quietly estadd local fixedcountry_year "Yes", replace
+// // quietly estadd local regionFE "No", replace
+// // quietly estadd local EthnicFE "No", replace
+// // quietly estadd local clusterSE "Yes", replace
+// // quietly estadd local Controls "Yes", replace
+// ********************************************************************************
+// * Coethnicity and Democracy
+// * with ethnicity FE
+// ********************************************************************************
+eststo did_dem_eth_w: reghdfe  Richest $DemInterCoethVars $PolityGroups urban female coethnic, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
+// ********************************************************************************
+// * Coethnicity and Democracy
+// * with Regional FE
+// ********************************************************************************
+// // eststo did_dem_reg_w:  xi: reg  Richest $DemInterCoethVars $PolityGroups urban female coethnic i.`RegionFEs' i.birth_year  i.age i.age5year , cluster(birth_year)
+// // quietly estadd local fixedcountry "No", replace
+// // quietly estadd local fixedyear "Yes", replace
+// // quietly estadd local fixedcountry_year "No", replace
+// // quietly estadd local regionFE "Yes", replace
+// // quietly estadd local EthnicFE "No", replace
+// // quietly estadd local clusterSE "Yes", replace
+// // quietly estadd local Controls "Yes", replace
+// ********************************************************************************
+// *contin polity score regression
+// ********************************************************************************
+// eststo did_contdem_w: reghdfe  Richest inter_polity2_coethnic coethnic urban female Polity, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+// ********************************************************************************
+// * Democracy-Diictatorship index regression
+// ********************************************************************************
+// * average democracy-diictatorship index
+// gen Democracy_dem_dic = (democracy_4 + democracy_3 + democracy_2 + democracy_1)/4
+// label var Democracy_dem_dic "Democracy"
+// gen inter_dem_dic = Democracy_dem_dic*coethnic
+// eststo Democracy_Wdemdic: reghdfe Richest inter_dem_dic coethnic Democracy_dem_dic urban female, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit

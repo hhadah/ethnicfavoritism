@@ -1,0 +1,3840 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/hhadah/Documents/GiT/ethnicfavoritism/logs.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}16 Dec 2022, 09:16:28
+{txt}
+{com}. 
+. * Completed Primary School Script
+. do "$programs/07-Regressions_PrimComp.do"
+{txt}
+{com}. /*
+> This do file produces the different
+> regressions from my analysis
+> */
+. ********************************************************************************
+. * First, primary school completion
+. clear
+{txt}
+{com}. cls
+{txt}
+{com}. set matsize 11000
+{txt}{bf:set matsize} ignored.
+{p 4 4 2}
+Matrix sizes are no longer limited by
+{bf:c(matsize)} in modern Statas.
+Matrix sizes are now limited by edition of Stata.
+See {help limits} for more details.
+{p_end}
+
+{com}. 
+. * open data set
+. use "$raw/DHS_PrimSchl.dta"
+{txt}
+{com}. ********************************************************************************
+. ********************************************************************************
+. * gen dummy variables for ethnicities by countries:
+. quietly tabulate homelangao,    generate(AngolaEth)
+{txt}
+{com}. quietly tabulate ethnicitybj,   generate(BeninEth)
+{txt}
+{com}. quietly tabulate ethnicitybf,   generate(BurkinaFasoEth)
+{txt}
+{com}. quietly tabulate ethnicitycm,   generate(CameronEth)
+{txt}
+{com}. quietly tabulate ethnicityci98, generate(IvoryCoastEth)
+{txt}
+{com}. quietly tabulate ethnicitycd,   generate(CongoEth)
+{txt}
+{com}. quietly tabulate ethnicityet,   generate(EthiopiaEth)
+{txt}
+{com}. quietly tabulate ethnicitygh,   generate(GhanaEth)
+{txt}
+{com}. quietly tabulate ethnicitygn,   generate(GuineaEth)
+{txt}
+{com}. quietly tabulate ethnicityke,   generate(KenyaEth)
+{txt}
+{com}. quietly tabulate ethnicitymw,   generate(MalawiEth)
+{txt}
+{com}. quietly tabulate ethnicityml,   generate(MaliEth)
+{txt}
+{com}. quietly tabulate ethnicitymz,   generate(MozambiqueEth)
+{txt}
+{com}. quietly tabulate ethnicitynm,   generate(NamibiaEth)
+{txt}
+{com}. quietly tabulate ethnicityne,   generate(NigerEth)
+{txt}
+{com}. quietly tabulate ethnicityng,   generate(NigeriaEth)
+{txt}
+{com}. quietly tabulate ethnicitysn,   generate(SenegalEth)
+{txt}
+{com}. quietly tabulate ethnicityza,   generate(SouthAfricaEth)
+{txt}
+{com}. quietly tabulate ethnicityug,   generate(UgandaEth)
+{txt}
+{com}. quietly tabulate ethnicityzm,   generate(ZambiaEth)
+{txt}
+{com}. quietly tabulate ethnicityzw,   generate(ZimbabweEth)
+{txt}
+{com}. * replace missing values with 0
+. foreach v of varlist AngolaEth1-ZimbabweEth6 {c -(}
+{txt}  2{com}. replace `v' = 0 if missing(`v')
+{txt}  3{com}. {c )-}
+{txt}(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,134,486 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,087,349 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,091,151 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,096,967 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,136,147 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,105,622 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,137,665 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,099,851 real changes made)
+(1,114,101 real changes made)
+(1,114,101 real changes made)
+(1,114,101 real changes made)
+(1,114,101 real changes made)
+(1,114,101 real changes made)
+(1,114,101 real changes made)
+(1,114,101 real changes made)
+(1,114,101 real changes made)
+(1,114,101 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,060,336 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,059,622 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,084,070 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,124,302 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,136,053 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,117,123 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,015,989 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,029,420 real changes made)
+(1,127,253 real changes made)
+(1,127,253 real changes made)
+(1,127,253 real changes made)
+(1,127,253 real changes made)
+(1,127,253 real changes made)
+(1,127,253 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,104,373 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,080,752 real changes made)
+(1,143,211 real changes made)
+(1,143,211 real changes made)
+(1,143,211 real changes made)
+(1,143,211 real changes made)
+(1,143,211 real changes made)
+(1,143,211 real changes made)
+
+{com}. * label variable
+. label var female "Female"
+{txt}
+{com}. replace female = 0 if female != 1
+{txt}(303,659 real changes made)
+
+{com}. rename urban urban1
+{res}{txt}
+{com}. gen urban = 0
+{txt}
+{com}. replace urban  = 1 if urban1 == 1
+{txt}(305,259 real changes made)
+
+{com}. drop urban1
+{txt}
+{com}. label var urban "Urban"
+{txt}
+{com}. ********************************************************************************
+. * gen coethnic varialbe similar to F&R 
+. gen coethnic = (coethnic_13 + coethnic_12 + coethnic_11 + coethnic_10 + coethnic_9 + coethnic_8 + coethnic_7)/7
+{txt}
+{com}. label var coethnic "Coethnic"
+{txt}
+{com}. * average polity2 score for the 7 years 
+. gen Polity = (polity2_7 + polity2_8 + polity2_9 + polity2_10 + polity2_11 + polity2_12 + polity2_13)/7
+{txt}(10,811 missing values generated)
+
+{com}. label var Polity "Average polity between the ages of 6 and 13."
+{txt}
+{com}. 
+. * interaction between polity and edu
+. gen inter_polity2_coethnic = Polity * coethnic
+{txt}(10,811 missing values generated)
+
+{com}. label var inter_polity2_coethnic "\textit{c -(}Polity{c )-}$\times$\textit{c -(}Coethnic Leader{c )-}"
+{txt}
+{com}. * gen Completed Primary Education Dummy
+. gen CompletedPrimaryEdu = 0
+{txt}
+{com}. label var CompletedPrimaryEdu "Schooling"
+{txt}
+{com}. replace CompletedPrimaryEdu = 1 if educlvl==1
+{txt}(372,124 real changes made)
+
+{com}. replace CompletedPrimaryEdu = 1 if educlvl==2
+{txt}(322,681 real changes made)
+
+{com}. replace CompletedPrimaryEdu = 1 if educlvl==3
+{txt}(48,818 real changes made)
+
+{com}. ********************************************************************************
+. * democratic groups
+. gen Democracy = 0
+{txt}
+{com}. replace Democracy = 1 if Polity<=9 & Polity>=6
+{txt}(78,605 real changes made)
+
+{com}. 
+. gen Anocracy = 0
+{txt}
+{com}. replace Anocracy = 1 if Polity>=-5 & Polity<=5
+{txt}(538,204 real changes made)
+
+{com}. //
+. // gen OpenAnocracy = 0
+. // replace OpenAnocracy = 1 if Polity>=1 & Polity<=5
+. //
+. // gen ClosedAnocracy = 0
+. // replace ClosedAnocracy = 1 if Polity<=0 & Polity>=-5
+. 
+. gen Autocracy = 0
+{txt}
+{com}. replace Autocracy = 1 if Democracy == 0 & Anocracy == 0
+{txt}(529,496 real changes made)
+
+{com}. 
+. // gen Failed_or_Occupied = 0
+. // replace Failed_or_Occupied = 1 if Polity == .
+. ********************************************************************************
+. * generate interaction terms between the groups and coethnicity
+. gen inter_Democracy_coethnic = Democracy*coethnic
+{txt}
+{com}. gen inter_Anocracy_coethnic = Anocracy*coethnic
+{txt}
+{com}. 
+. // gen inter_OpenAnocracy_coethnic = OpenAnocracy*coethnic
+. // gen inter_ClosedAnocracy_coethnic = ClosedAnocracy*coethnic
+. gen inter_Autocracy_coethnic = Autocracy*coethnic
+{txt}
+{com}. // gen inter_FailedOccupied_coethnic = Failed_or_Occupied*coethnic
+. label var inter_Democracy_coethnic "$ I_{c -(} 10 \geq Polity IV \geq 6{c )-} \times Coethnic Leader $"
+{txt}
+{com}. label var inter_Anocracy_coethnic "$ I_{c -(} 5 \geq Polity IV \geq -5{c )-} \times Coethnic Leader $"
+{txt}
+{com}. // label var inter_OpenAnocracy_coethnic "$ I_{c -(} 5 \geq Polity IV \geq 1{c )-} \times Coethnic Leader $"
+. // label var inter_ClosedAnocracy_coethnic "$ I_{c -(} 0 \geq Polity IV \geq -5{c )-} \times Coethnic Leader $"
+. label var inter_Autocracy_coethnic "$ I_{c -(} -5 \geq Polity IV \geq -10{c )-} \times Coethnic Leader $"
+{txt}
+{com}. // label var inter_FailedOccupied_coethnic "\textit{c -(}Failed state{c )-}$\times$\textit{c -(}Coethnic Leader{c )-}"
+. ********************************************************************************
+. ********************************************************************************
+. * regressions on Completed Primary Education
+. ********************************************************************************
+. gen birth_year = intyear - age
+{txt}
+{com}. * set up local variables
+. global DemInterCoethVars inter_Democracy_coethnic inter_Anocracy_coethnic
+{txt}
+{com}. global PolityGroups Democracy Anocracy
+{txt}
+{com}. egen EthClusters = group(AngolaEth1-ZimbabweEth6)
+{res}{txt}
+{com}. 
+. save "$datasets/DHS_PrimSchl.dta", replace
+{txt}{p 0 4 2}
+(file {bf}
+/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets/DHS_PrimSchl.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets/DHS_PrimSchl.dta{rm}
+saved
+{p_end}
+
+{com}. // export delimited "$datasets/DHS_PrimSchl.csv", nolabel 
+. // local EthnicFEs "AngolaEth1-ZimbabweEth6"
+. // xi: reg CompletedPrimaryEdu coethnic urban female i.birth_year `EthnicFEs' i.age i.age5year, cluster(EthClusters) noomit
+. //
+. // local EthnicFEs "AngolaEth1-ZimbabweEth6"
+. // egen Groups = group(birth_year AngolaEth1-ZimbabweEth6 age age5year)
+. // xtset Groups
+. // xtreg CompletedPrimaryEdu coethnic urban, fe cluster(birth_year) noomit
+. //
+. // local EthnicFEs "AngolaEth1-ZimbabweEth6"
+. // reghdfe CompletedPrimaryEdu coethnic urban female `EthnicFEs', a(birth_year age age5year) cluster(birth_year)
+. // local RegionFEs "geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015"
+. ********************************************************************************
+. * Ethnic favoritism in education 
+. * with Country-Year fixed effects,
+. * Age FE and 5 years groups FE
+. // eststo did_ethfav_ct: xi: reg CompletedPrimaryEdu coethnic urban female i.cowcode_7*i.birth_year i.age i.age5year, cluster(birth_year) noomit  
+. // quietly estadd local fixedcountry "Yes", replace
+. // quietly estadd local fixedyear "Yes", replace
+. // quietly estadd local fixedcountry_year "Yes", replace
+. // quietly estadd local regionFE "No", replace
+. // quietly estadd local EthnicFE "No", replace
+. // quietly estadd local clusterSE "Yes", replace
+. // quietly estadd local Controls "Yes", replace
+. ********************************************************************************
+. * Ethnic favoritism in education 
+. * with country and birth 
+. * year fixed effects and
+. * ethnicity FE
+. // local EthnicFEs "AngolaEth1-ZimbabweEth6"
+. // // xtlogit CompletedPrimaryEdu coethnic urban female i.birth_year i.age i.EthClusters, fe vce(cluster EthClusters) noomit
+. // // logit CompletedPrimaryEdu coethnic urban female i.birth_year i.age i.EthClusters, vce(cluster EthClusters) noomit
+. // eststo did_ethfav_ethFE: reghdfe CompletedPrimaryEdu coethnic urban female, absorb(i.birth_year i.age i.EthClusters) cluster(EthClusters) noomit
+. // eststo did_ethfav_dem: reghdfe CompletedPrimaryEdu coethnic urban female if Democracy == 1, absorb(i.birth_year i.age i.EthClusters) cluster(EthClusters) noomit
+. // eststo did_ethfav_anoc: reghdfe CompletedPrimaryEdu coethnic urban female if Anocracy == 1, absorb(i.birth_year i.age i.EthClusters) cluster(EthClusters) noomit  
+. // eststo did_ethfav_autoc: reghdfe CompletedPrimaryEdu coethnic urban female if Autocracy == 1, absorb(i.birth_year i.age i.EthClusters) cluster(EthClusters) noomit  
+. // #delimit;
+. // coefplot     (did_ethfav_dem, label(Democracy))
+. //                      (did_ethfav_anoc, label(Anocracy)) 
+. //                      (did_ethfav_autoc, label(Autocracy)),
+. //                      aseq swapnames legend(off)
+. //                      title("The Co-ethnic Effect on Schooling" "with Ethnic Groups and Time Fixed Effects by Democratic Group") 
+. //                      keep(coethnic) xline(0, lcolor(red))
+. //                      msymbol(O) msize(large) levels(90)
+. //                      coeflabels(did_ethfav_dem = "Democracy"
+. //                                         did_ethfav_anoc = "Anocracy"
+. //                                         did_ethfav_autoc = "Autocracy");
+. // graph export coeth_byGroups1.png, replace;
+. //  #delimit cr
+. //
+. // ********************************************************************************
+. // ********************************************************************************
+. // * Ethnic favoritism in education 
+. // * with ragion and birth 
+. // * year fixed effects and
+. // * ethnicity FE
+. // // foreach v of varlist geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015 {c -(}
+. // // replace `v' = 0 if missing(`v')
+. // // {c )-}
+. // //
+. // // eststo did_ethfav_region:xi: reg CompletedPrimaryEdu coethnic urban female i.`RegionFEs' i.birth_year i.age i.age5year, cluster(birth_year)
+. // // quietly estadd local fixedcountry "No", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "No", replace
+. // // quietly estadd local regionFE "Yes", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // * regressions on interaction between democracy and Completed Primary Education
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with time-country FE
+. // ********************************************************************************
+. // // eststo did_dem_counttime: xi: reg CompletedPrimaryEdu $DemInterCoethVars $PolityGroups urban female coethnic i.cowcode_7*i.birth_year i.age i.age5year, cluster(birth_year) noomit  
+. // // quietly estadd local fixedcountry "Yes", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "Yes", replace
+. // // quietly estadd local regionFE "No", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with ethnicity FE
+. // ********************************************************************************
+. // eststo did_dem_eth: reghdfe CompletedPrimaryEdu $DemInterCoethVars $PolityGroups urban female coethnic, absorb(i.birth_year i.age i.EthClusters) cluster(EthClusters) noomit  
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with Regional FE
+. // ********************************************************************************
+. // // eststo did_dem_reg:  xi: reg CompletedPrimaryEdu $DemInterCoethVars $PolityGroups urban female coethnic i.`RegionFEs' i.birth_year i.age i.age5year, cluster(birth_year)
+. // // quietly estadd local fixedcountry "No", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "No", replace
+. // // quietly estadd local regionFE "Yes", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // *contin polity score regression
+. // ********************************************************************************
+. // eststo did_contdem: reghdfe CompletedPrimaryEdu inter_polity2_coethnic coethnic urban female Polity, absorb(i.birth_year i.age i.EthClusters) cluster(EthClusters)
+. // ********************************************************************************
+. // * Democracy-Diictatorship index regression
+. // ********************************************************************************
+. // * average democracy-diictatorship index
+. // gen Democracy_dem_dic = (democracy_13 + democracy_12 + democracy_11 + democracy_10 + democracy_9 + democracy_8 + democracy_7)/7
+. // gen inter_dem_dic = Democracy_dem_dic*coethnic
+. // label var Democracy_dem_dic "Democracy"
+. // eststo Democracy_Edudemdic: reghdfe CompletedPrimaryEdu inter_dem_dic coethnic Democracy_dem_dic urban female, absorb(i.birth_year i.age i.EthClusters) cluster(EthClusters)
+. 
+{txt}end of do-file
+
+{com}. 
+. * Infant Mortality Script
+. do "$programs/08-Regressions_infmort.do" 
+{txt}
+{com}. /*
+> This do file produces the different
+> regressions from my analysis
+> */
+. ********************************************************************************
+. * Fourth, InfantMortality
+. clear
+{txt}
+{com}. cls
+{txt}
+{com}. set matsize 11000
+{txt}{bf:set matsize} ignored.
+{p 4 4 2}
+Matrix sizes are no longer limited by
+{bf:c(matsize)} in modern Statas.
+Matrix sizes are now limited by edition of Stata.
+See {help limits} for more details.
+{p_end}
+
+{com}. global RegressionResults "/Users/hhadah/Dropbox/EthnicFav copy/Analysis/Regressions_and_Results"
+{txt}
+{com}. * set working directory
+. cd "$RegressionResults"
+{res}/Users/hhadah/Dropbox/EthnicFav copy/Analysis/Regressions_and_Results
+{txt}
+{com}. * open data set
+. use "$raw/DHS_Infantdata_polity_coethnic.dta"
+{txt}
+{com}. ********************************************************************************
+. * Possible controls
+. * bidx age hhkidlt5 kidsex year year kidbord
+. ********************************************************************************
+. * gen dummy variables for ethnicities by countries:
+. quietly tabulate homelangao,    generate(AngolaEth)
+{txt}
+{com}. quietly tabulate ethnicitybj,   generate(BeninEth)
+{txt}
+{com}. quietly tabulate ethnicitybf,   generate(BurkinaFasoEth)
+{txt}
+{com}. quietly tabulate ethnicitycm,   generate(CameronEth)
+{txt}
+{com}. quietly tabulate ethnicityci98, generate(IvoryCoastEth)
+{txt}
+{com}. quietly tabulate ethnicitycd,   generate(CongoEth)
+{txt}
+{com}. quietly tabulate ethnicityet,   generate(EthiopiaEth)
+{txt}
+{com}. quietly tabulate ethnicitygh,   generate(GhanaEth)
+{txt}
+{com}. quietly tabulate ethnicitygn,   generate(GuineaEth)
+{txt}
+{com}. quietly tabulate ethnicityke,   generate(KenyaEth)
+{txt}
+{com}. quietly tabulate ethnicitymw,   generate(MalawiEth)
+{txt}
+{com}. quietly tabulate ethnicityml,   generate(MaliEth)
+{txt}
+{com}. quietly tabulate ethnicitymz,   generate(MozambiqueEth)
+{txt}
+{com}. quietly tabulate ethnicityne,   generate(NigerEth)
+{txt}
+{com}. quietly tabulate ethnicityng,   generate(NigeriaEth)
+{txt}
+{com}. quietly tabulate ethnicitysn,   generate(SenegalEth)
+{txt}
+{com}. quietly tabulate ethnicityza,   generate(SouthAfricaEth)
+{txt}
+{com}. quietly tabulate ethnicityug,   generate(UgandaEth)
+{txt}
+{com}. quietly tabulate ethnicityzm,   generate(ZambiaEth)
+{txt}
+{com}. quietly tabulate ethnicityzw,   generate(ZimbabweEth)
+{txt}
+{com}. foreach v of varlist homelangao-ethnicityzw {c -(}
+{txt}  2{com}. replace `v' = 0 if missing(`v')
+{txt}  3{com}. {c )-}
+{txt}(2,557,595 real changes made)
+(2,445,194 real changes made)
+(2,444,801 real changes made)
+(2,487,656 real changes made)
+(2,507,819 real changes made)
+(2,577,713 real changes made)
+(2,557,534 real changes made)
+(2,499,441 real changes made)
+(2,510,103 real changes made)
+(2,400,806 real changes made)
+(2,385,658 real changes made)
+(2,405,120 real changes made)
+(2,525,140 real changes made)
+(2,498,232 real changes made)
+(2,301,992 real changes made)
+(2,301,992 real changes made)
+(2,344,571 real changes made)
+(2,552,225 real changes made)
+(2,479,316 real changes made)
+(2,452,439 real changes made)
+(2,567,557 real changes made)
+
+{com}. local ethnicities ethnicitybj-ethnicityzw
+{txt}
+{com}. 
+. * replace missing values with 0
+. foreach v of varlist AngolaEth1-ZimbabweEth6 {c -(}
+{txt}  2{com}. replace `v' = 0 if missing(`v')
+{txt}  3{com}. replace `v' = 0 if `v' == .
+{txt}  4{com}. 
+. {c )-}
+{txt}(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,557,595 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,445,194 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,444,801 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,487,656 real changes made)
+(0 real changes made)
+(2,577,713 real changes made)
+(0 real changes made)
+(2,577,713 real changes made)
+(0 real changes made)
+(2,577,713 real changes made)
+(0 real changes made)
+(2,577,713 real changes made)
+(0 real changes made)
+(2,577,713 real changes made)
+(0 real changes made)
+(2,577,713 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,507,819 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,557,534 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,499,441 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,510,103 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,400,806 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,385,658 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,405,120 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,525,140 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,498,232 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,301,992 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,344,571 real changes made)
+(0 real changes made)
+(2,552,225 real changes made)
+(0 real changes made)
+(2,552,225 real changes made)
+(0 real changes made)
+(2,552,225 real changes made)
+(0 real changes made)
+(2,552,225 real changes made)
+(0 real changes made)
+(2,552,225 real changes made)
+(0 real changes made)
+(2,552,225 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,479,316 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,452,439 real changes made)
+(0 real changes made)
+(2,567,557 real changes made)
+(0 real changes made)
+(2,567,557 real changes made)
+(0 real changes made)
+(2,567,557 real changes made)
+(0 real changes made)
+(2,567,557 real changes made)
+(0 real changes made)
+(2,567,557 real changes made)
+(0 real changes made)
+(2,567,557 real changes made)
+(0 real changes made)
+
+{com}. * label variable
+. rename urban urban1
+{res}{txt}
+{com}. gen urban = 0
+{txt}
+{com}. replace urban  = 1 if urban1 == 1
+{txt}(712,600 real changes made)
+
+{com}. drop urban1
+{txt}
+{com}. label var urban "Urban"
+{txt}
+{com}. ********************************************************************************
+. * democratic groups
+. gen Democracy = 0
+{txt}
+{com}. replace Democracy = 1 if polity2<=9 & polity2>=6
+{txt}(500,524 real changes made)
+
+{com}. 
+. gen Anocracy = 0
+{txt}
+{com}. replace Anocracy = 1 if polity2>=-5 & polity2<=5
+{txt}(1,239,968 real changes made)
+
+{com}. // gen OpenAnocracy = 0
+. // replace OpenAnocracy = 1 if polity2>=1 & polity2<=5
+. //
+. // gen ClosedAnocracy = 0
+. // replace ClosedAnocracy = 1 if polity2<=0 & polity2>=-5
+. 
+. gen Autocracy = 0
+{txt}
+{com}. replace Autocracy = 1 if Democracy == 0 & Anocracy == 0
+{txt}(844,796 real changes made)
+
+{com}. 
+. // gen Failed_or_Occupied = 0
+. // replace Failed_or_Occupied = 1 if polity2 == .
+. ********************************************************************************
+. * generate interaction terms between the groups and coethnicity
+. gen inter_Democracy_coethnic = Democracy*coethnic
+{txt}
+{com}. gen inter_Anocracy_coethnic = Anocracy*coethnic
+{txt}
+{com}. // gen inter_OpenAnocracy_coethnic = OpenAnocracy*coethnic
+. // gen inter_ClosedAnocracy_coethnic = ClosedAnocracy*coethnic
+. gen inter_Autocracy_coethnic = Autocracy*coethnic
+{txt}
+{com}. // gen inter_FailedOccupied_coethnic = Failed_or_Occupied*coethnic
+. gen inter_polity2_coethnic = polity2*coethnic
+{txt}(33,900 missing values generated)
+
+{com}. label var inter_Democracy_coethnic "$ I_{c -(} 10 \geq Polity IV \geq 6{c )-} \times Coethnic Leader $"
+{txt}
+{com}. label var inter_Anocracy_coethnic "$ I_{c -(} 5 \geq Polity IV \geq -5{c )-} \times Coethnic Leader $"
+{txt}
+{com}. // label var inter_OpenAnocracy_coethnic "$ I_{c -(} 5 \geq Polity IV \geq 1{c )-} \times Coethnic Leader $"
+. // label var inter_ClosedAnocracy_coethnic "$ I_{c -(} 0 \geq Polity IV \geq -5{c )-} \times Coethnic Leader $"
+. label var inter_Autocracy_coethnic "$ I_{c -(} -5 \geq Polity IV \geq 10{c )-} \times Coethnic Leader $"
+{txt}
+{com}. // label var inter_FailedOccupied_coethnic "\textit{c -(}Failed state{c )-}$\times$\textit{c -(}Coethnic Leader{c )-}"
+. label var inter_polity2_coethnic "\textit{c -(}Polity{c )-}$\times$\textit{c -(}Coethnic Leader{c )-}"
+{txt}
+{com}. ********************************************************************************
+. * Construct infant mortality variable
+. ********************************************************************************
+. gen infant_mortality = 0
+{txt}
+{com}. label var infant_mortality "Infant mortality"
+{txt}
+{com}. // drop if kidagedeath == 198
+. // drop if kidagedeath == 199
+. // drop if kidagedeath == 297
+. // drop if kidagedeath == 298
+. // drop if kidagedeath == 299
+. // drop if kidagedeath >= 397
+. 
+. replace infant_mortality = 1 if kidalive == 0 & kidagedeath <= 212
+{txt}(244,381 real changes made)
+
+{com}. ********************************************************************************
+. * Construct infant survival variable
+. ********************************************************************************
+. gen infant_survival = 0
+{txt}
+{com}. label var infant_survival "Infant survival"
+{txt}
+{com}. replace infant_survival = 1 - infant_mortality
+{txt}(2,340,907 real changes made)
+
+{com}. ********************************************************************************
+. ********************************************************************************
+. ********************************************************************************
+. * regressions on Infant Mortaltiy
+. ********************************************************************************
+. gen birth_year = intyear - age
+{txt}(68,535 missing values generated)
+
+{com}. label var coethnic "Coethnic"
+{txt}
+{com}. rename polity2 Polity
+{res}{txt}
+{com}. * set up local variables
+. local EthnicFEs "AngolaEth1-ZimbabweEth6"
+{txt}
+{com}. // sum BeninEth1-ZimbabweEth6
+. // tab `EthnicFEs', sum(coethnic)
+. // sort `EthnicFEs'
+. // by `EthnicFEs': egen frac_coethnic = mean(coethnic)
+. // tab frac_coethnic
+. // local RegionFEs "geo_bj1996_2011 geo_bf2003_2010 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013"
+. ********************************************************************************
+. * Ethnic favoritism in education 
+. * with Country-Year fixed effects,
+. * Age FE and 5 years groups FE
+. // eststo did_ct_Inf: xi: reg infant_mortality coethnic urban kidbord age kidsex i.cowcode*i.year   i.age i.age5year, cluster(year) noomit  
+. // quietly estadd local fixedcountry "Yes", replace
+. // quietly estadd local fixedyear "Yes", replace
+. // quietly estadd local fixedcountry_year "Yes", replace
+. // quietly estadd local regionFE "No", replace
+. // quietly estadd local EthnicFE "No", replace
+. // quietly estadd local clusterSE "Yes", replace
+. // quietly estadd local Controls "Yes", replace
+. 
+. ********************************************************************************
+. * Ethnic favoritism in education 
+. * with country and birth 
+. * year fixed effects and
+. * ethnicity FE
+. egen EthClusters = group(AngolaEth1-ZimbabweEth6)
+{res}{txt}
+{com}. 
+. * label variable
+. label var female "Female"
+{err}variable {bf}female{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. tab kidsex
+
+     {txt}Sex of {c |}
+      child {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+       Male {c |}{res}  1,315,416       50.88       50.88
+{txt}     Female {c |}{res}  1,269,872       49.12      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}  2,585,288      100.00
+
+{com}. tab urban 
+
+      {txt}Urban {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}  1,872,688       72.44       72.44
+{txt}          1 {c |}{res}    712,600       27.56      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}  2,585,288      100.00
+
+{com}. do "/var/folders/0k/t0wh4phn5w34js_gt_glc5gr0000gn/T//SD26790.000000"
+{txt}
+{com}. rename urban urban1
+{res}{txt}
+{com}. gen urban = 0
+{txt}
+{com}. replace urban  = 1 if urban1 == 1
+{txt}(712,600 real changes made)
+
+{com}. drop urban1
+{txt}
+{com}. label var urban "Urban"
+{txt}
+{com}. save "$datasets/DHS_Infantdata_polity_coethnic.dta", replace
+{txt}{p 0 4 2}
+(file {bf}
+/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets/DHS_Infantdata_polity_coethnic.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets/DHS_Infantdata_polity_coethnic.dta{rm}
+saved
+{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "/var/folders/0k/t0wh4phn5w34js_gt_glc5gr0000gn/T//SD26790.000000"
+{txt}
+{com}. do "$programs/09-Regressions_elec_wat.do"
+{txt}
+{com}. /*
+> This do file produces the different
+> regressions from my analysis
+> */
+. ********************************************************************************
+. * Second, Electrificattion and Access to Water
+. clear
+{txt}
+{com}. cls
+{txt}
+{com}. 
+. cd "$RegressionResults"
+{res}/Users/hhadah/Dropbox/EthnicFav copy/Analysis/Regressions_and_Results
+{txt}
+{com}. 
+. * open data set
+. use "$raw/DHS_ElectrificationWater.dta"
+{txt}
+{com}. ********************************************************************************
+. ********************************************************************************
+. * gen dummy variables for ethnicities by countries:
+. quietly tabulate homelangao,    generate(AngolaEth)
+{txt}
+{com}. quietly tabulate ethnicitybj,   generate(BeninEth)
+{txt}
+{com}. quietly tabulate ethnicitybf,   generate(BurkinaFasoEth)
+{txt}
+{com}. quietly tabulate ethnicitycm,   generate(CameronEth)
+{txt}
+{com}. quietly tabulate ethnicityci98, generate(IvoryCoastEth)
+{txt}
+{com}. quietly tabulate ethnicitycd,   generate(CongoEth)
+{txt}
+{com}. quietly tabulate ethnicityet,   generate(EthiopiaEth)
+{txt}
+{com}. quietly tabulate ethnicitygh,   generate(GhanaEth)
+{txt}
+{com}. quietly tabulate ethnicitygn,   generate(GuineaEth)
+{txt}
+{com}. quietly tabulate ethnicityke,   generate(KenyaEth)
+{txt}
+{com}. quietly tabulate ethnicitymw,   generate(MalawiEth)
+{txt}
+{com}. quietly tabulate ethnicityml,   generate(MaliEth)
+{txt}
+{com}. quietly tabulate ethnicitymz,   generate(MozambiqueEth)
+{txt}
+{com}. quietly tabulate ethnicitynm,   generate(NamibiaEth)
+{txt}
+{com}. quietly tabulate ethnicityne,   generate(NigerEth)
+{txt}
+{com}. quietly tabulate ethnicityng,   generate(NigeriaEth)
+{txt}
+{com}. quietly tabulate ethnicitysn,   generate(SenegalEth)
+{txt}
+{com}. quietly tabulate ethnicityza,   generate(SouthAfricaEth)
+{txt}
+{com}. quietly tabulate ethnicityug,   generate(UgandaEth)
+{txt}
+{com}. quietly tabulate ethnicityzm,   generate(ZambiaEth)
+{txt}
+{com}. quietly tabulate ethnicityzw,   generate(ZimbabweEth)
+{txt}
+{com}. * replace missing values with 0
+. foreach v of varlist BeninEth1-ZimbabweEth6 {c -(}
+{txt}  2{com}. replace `v' = 0 if missing(`v')
+{txt}  3{com}. {c )-}
+{txt}(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(780,796 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(764,592 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(771,052 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(816,111 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(807,601 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(813,713 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(785,422 real changes made)
+(802,492 real changes made)
+(802,492 real changes made)
+(802,492 real changes made)
+(802,492 real changes made)
+(802,492 real changes made)
+(802,492 real changes made)
+(802,492 real changes made)
+(802,492 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(770,357 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(760,887 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(770,940 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(793,459 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(797,419 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(790,389 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(742,245 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(758,313 real changes made)
+(810,618 real changes made)
+(810,618 real changes made)
+(810,618 real changes made)
+(810,618 real changes made)
+(810,618 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(797,588 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(781,974 real changes made)
+(809,883 real changes made)
+(809,883 real changes made)
+(809,883 real changes made)
+(809,883 real changes made)
+(809,883 real changes made)
+(809,883 real changes made)
+
+{com}. * label variable
+. label var female "Female"
+{txt}
+{com}. rename urban urban1
+{res}{txt}
+{com}. gen urban = 0
+{txt}
+{com}. replace urban  = 1 if urban1 == 1
+{txt}(215,288 real changes made)
+
+{com}. drop urban1
+{txt}
+{com}. label var urban "Urban"
+{txt}
+{com}. * generate electrification and access to water variables
+. * gen Access to water Ordinal variable
+. gen AccessToWater = 1
+{txt}
+{com}. // label define WaterSource 1 "Water source is natural." 2 "unprotected borehole or well." 3 "protected borehole or well." 4 "Water soruce is piped."
+. label var AccessToWater "Water"
+{txt}
+{com}. replace AccessToWater = 4 if drinkwtr>=1000 & drinkwtr< 2000 | drinkwtr == 5400 
+{txt}(288,545 real changes made)
+
+{com}. replace AccessToWater = 4 if drinkwtr == 5400   
+{txt}(0 real changes made)
+
+{com}. 
+. replace AccessToWater = 1 if drinkwtr>=3000 & drinkwtr< 5400    
+{txt}(0 real changes made)
+
+{com}. replace AccessToWater = 2 if drinkwtr>=2100 & drinkwtr< 2200
+{txt}(113,148 real changes made)
+
+{com}. replace AccessToWater = 2 if drinkwtr>=2300 & drinkwtr< 3000
+{txt}(83,639 real changes made)
+
+{com}. replace AccessToWater = 3 if drinkwtr>=2200 & drinkwtr< 2300
+{txt}(176,260 real changes made)
+
+{com}. * gen Electrification Dummy
+. gen Electrification = 0
+{txt}
+{com}. replace Electrification = 1 if electrc == 1
+{txt}(225,985 real changes made)
+
+{com}. label var Electrification "Electrification"
+{txt}
+{com}. ********************************************************************************
+. * democratic groups
+. gen Democracy = 0
+{txt}
+{com}. replace Democracy = 1 if polity2<=9 & polity2>=6
+{txt}(263,598 real changes made)
+
+{com}. 
+. gen Anocracy = 0
+{txt}
+{com}. replace Anocracy = 1 if polity2>=-5 & polity2<=5
+{txt}(490,600 real changes made)
+
+{com}. 
+. // gen OpenAnocracy = 0
+. // replace OpenAnocracy = 1 if polity2>=1 & polity2<=5
+. //
+. // gen ClosedAnocracy = 0
+. // replace ClosedAnocracy = 1 if polity2<=0 & polity2>=-5
+. 
+. gen Autocracy = 0
+{txt}
+{com}. replace Autocracy = 1 if Democracy == 0 & Anocracy == 0
+{txt}(68,155 real changes made)
+
+{com}. 
+. // gen Failed_or_Occupied = 0
+. // replace Failed_or_Occupied = 1 if polity2 == .
+. ********************************************************************************
+. * generate interaction terms between the groups and coethnicity
+. gen inter_Democracy_coethnic = Democracy*coethnic
+{txt}
+{com}. gen inter_Anocracy_coethnic = Anocracy*coethnic
+{txt}
+{com}. // gen inter_OpenAnocracy_coethnic = OpenAnocracy*coethnic
+. // gen inter_ClosedAnocracy_coethnic = ClosedAnocracy*coethnic
+. gen inter_Autocracy_coethnic = Autocracy*coethnic
+{txt}
+{com}. // gen inter_FailedOccupied_coethnic = Failed_or_Occupied*coethnic
+. gen inter_polity2_coethnic = polity2*coethnic
+{txt}(6,033 missing values generated)
+
+{com}. label var inter_Democracy_coethnic "$ I_{c -(} 10 \geq Polity IV \geq 6{c )-} \times Coethnic Leader $"
+{txt}
+{com}. label var inter_Anocracy_coethnic "$ I_{c -(} 5 \geq Polity IV \geq -5{c )-} \times Coethnic Leader $"
+{txt}
+{com}. // label var inter_OpenAnocracy_coethnic "$ I_{c -(} 5 \geq Polity IV \geq 1{c )-} \times Coethnic Leader $"
+. // label var inter_ClosedAnocracy_coethnic "$ I_{c -(} 0 \geq Polity IV \geq -5{c )-} \times Coethnic Leader $"
+. label var inter_Autocracy_coethnic "$ I_{c -(} -5 \geq Polity IV \geq 10{c )-} \times Coethnic Leader $"
+{txt}
+{com}. // label var inter_FailedOccupied_coethnic "\textit{c -(}Failed state{c )-}$\times$\textit{c -(}Coethnic Leader{c )-}"
+. label var inter_polity2_coethnic "\textit{c -(}Polity{c )-}$\times$\textit{c -(}Coethnic Leader{c )-}"
+{txt}
+{com}. gen Democracy_dem_dic = democracy
+{txt}(368,680 missing values generated)
+
+{com}. label var Democracy_dem_dic "Democracy"
+{txt}
+{com}. gen inter_dem_dic = Democracy_dem_dic*coethnic
+{txt}(368,680 missing values generated)
+
+{com}. ********************************************************************************
+. ********************************************************************************
+. * regressions on Electricity and access to water
+. ********************************************************************************
+. gen birth_year = intyear - age
+{txt}
+{com}. label var coethnic "Coethnic"
+{txt}
+{com}. rename polity2 Polity
+{res}{txt}
+{com}. * set up local variables
+. // local DemInterCoethVars inter_Democracy_coethnic inter_OpenAnocracy_coethnic inter_ClosedAnocracy_coethnic
+. // local PolityGroups Democracy OpenAnocracy ClosedAnocracy
+. local EthnicFEs "BeninEth1-ZimbabweEth6"
+{txt}
+{com}. // local RegionFEs "geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015"
+. egen EthClusters = group(BeninEth1-ZimbabweEth6)
+{res}{txt}
+{com}. 
+. * label variable
+. label var female "Female"
+{txt}
+{com}. replace female = 0 if female != 1
+{txt}(213,400 real changes made)
+
+{com}. rename urban urban1
+{res}{txt}
+{com}. gen urban = 0
+{txt}
+{com}. replace urban  = 1 if urban1 == 1
+{txt}(215,288 real changes made)
+
+{com}. drop urban1
+{txt}
+{com}. label var urban "Urban"
+{txt}
+{com}. save "$datasets/DHS_ElectrificationWater.dta", replace
+{txt}{p 0 4 2}
+(file {bf}
+/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets/DHS_ElectrificationWater.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets/DHS_ElectrificationWater.dta{rm}
+saved
+{p_end}
+
+{com}. ********************************************************************************
+. // reghdfe      Electrification coethnic urban female                                                           , absorb(i.birth_year  i.age) cluster(EthClusters) noomit
+. // reghdfe              Electrification coethnic urban female                   if Democracy == 1       , absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+. // reghdfe      Electrification coethnic urban female                   if Anocracy == 1        , absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit  
+. // reghdfe      Electrification coethnic urban female                   if Autocracy == 1       , absorb(i.birth_year  i.age) cluster(EthClusters) noomit  
+. // reghdfe      AccessToWater coethnic urban female                                                             , absorb(i.birth_year  i.age) cluster(EthClusters) noomit
+. // reghdfe              AccessToWater coethnic urban female                     if Democracy == 1       , absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+. // reghdfe      AccessToWater coethnic urban female                     if Anocracy == 1        , absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit  
+. // reghdfe      AccessToWater coethnic urban female                     if Autocracy == 1       , absorb(i.birth_year  i.age) cluster(EthClusters) noomit 
+. // local electricity_water Electrification AccessToWater
+. // foreach var in `electricity_water'{c -(}
+. // // * Ethnic favoritism in education 
+. // // * with Country-Year fixed effects,
+. // // * Age FE and 5 years groups FE
+. // // eststo did_ct`var': xi: reg `var' coethnic urban female i.cowcode*i.birth_year  i.age i.age5year , cluster(birth_year) noomit  
+. // // quietly estadd local fixedcountry "Yes", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "Yes", replace
+. // // quietly estadd local regionFE "No", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. //
+. // ********************************************************************************
+. // * Ethnic favoritism in education 
+. // * with country and birth 
+. // * year fixed effects and
+. // * ethnicity FE
+. // eststo did_eth`var':                                 reghdfe         `var' coethnic urban female                                                             , absorb(i.birth_year  i.age) cluster(EthClusters) noomit
+. // eststo dem`var':             reghdfe         `var' coethnic urban female                     if Democracy == 1       , absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+. // eststo anoc`var':            reghdfe         `var' coethnic urban female                     if Anocracy == 1        , absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit  
+. // eststo autoc`var':           reghdfe         `var' coethnic urban female                     if Autocracy == 1       , absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit  
+. // #delimit;
+. // coefplot     (dem`var', label(Democracy))
+. //                      (anoc`var', label(Anocracy)) 
+. //                      (autoc`var', label(Autocracy)),
+. //                      aseq swapnames legend(off)
+. //                      title("The Co-ethnic Effect on `var'" "with Ethnic Groups and Time Fixed Effects by Democratic Group") 
+. //                      keep(coethnic) xline(0, lcolor(red))
+. //                      msymbol(O) msize(large) levels(90)
+. //                      coeflabels(dem`var' = "Democracy"
+. //                                         anoc`var' = "Anocracy"
+. //                                         autoc`var' = "Autocracy");
+. // graph export coeth_byGroups3.png, replace;
+. //  #delimit cr
+. // ********************************************************************************
+. // ********************************************************************************
+. // * Ethnic favoritism in education 
+. // * with ragion and birth 
+. // * year fixed effects and
+. // * ethnicity FE
+. // // foreach v of varlist geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015 {c -(}
+. // // replace `v' = 0 if missing(`v')
+. // // {c )-}
+. // //
+. // // eststo did_reg`var':xi: reg `var' coethnic urban female i.`RegionFEs' i.birth_year  i.age i.age5year , cluster(birth_year)
+. // // quietly estadd local fixedcountry "No", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "No", replace
+. // // quietly estadd local regionFE "Yes", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // * regressions on interaction between democracy and Completed Primary Education
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with time-country FE
+. // ********************************************************************************
+. // // eststo did_demct`var': xi: reg `var' $DemInterCoethVars $PolityGroups urban female coethnic i.cowcode*i.birth_year i.age i.age5year  , cluster(birth_year) noomit  
+. // // quietly estadd local fixedcountry "Yes", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "Yes", replace
+. // // quietly estadd local regionFE "No", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with ethnicity FE
+. // ********************************************************************************
+. // eststo did_demeth`var': reghdfe `var' $DemInterCoethVars $PolityGroups urban female coethnic, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with Regional FE
+. // ********************************************************************************
+. // // eststo did_demreg`var':  xi: reg `var' $DemInterCoethVars $PolityGroups urban female coethnic i.`RegionFEs' i.birth_year  i.age i.age5year , cluster(birth_year)
+. // // quietly estadd local fixedcountry "No", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "No", replace
+. // // quietly estadd local regionFE "Yes", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // *contin polity score regression
+. // ********************************************************************************
+. // eststo did_contdem`var': reghdfe `var' inter_polity2_coethnic coethnic urban female Polity, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+. // ********************************************************************************
+. // * Democracy-Diictatorship index regression
+. // ********************************************************************************
+. // * average democracy-diictatorship index
+. // eststo demdic`var': reghdfe `var' inter_dem_dic coethnic Democracy_dem_dic urban female, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+. // {c )-}
+. 
+{txt}end of do-file
+
+{com}. 
+. * Wealth Script
+. do "$programs/10-Regressions_Wealth.do"
+{txt}
+{com}. /*
+> This do file produces the different
+> regressions from my analysis
+> */
+. ********************************************************************************
+. * Third, Wealth
+. clear
+{txt}
+{com}. cls
+{txt}
+{com}. 
+. * set working directory
+. cd "$RegressionResults"
+{res}/Users/hhadah/Dropbox/EthnicFav copy/Analysis/Regressions_and_Results
+{txt}
+{com}. 
+. * open data set
+. use "$raw/DHS_Wealth.dta"
+{txt}
+{com}. ********************************************************************************
+. ********************************************************************************
+. * gen dummy variables for ethnicities by countries:
+. quietly tabulate homelangao,    generate(AngolaEth)
+{txt}
+{com}. quietly tabulate ethnicitybj,   generate(BeninEth)
+{txt}
+{com}. quietly tabulate ethnicitybf,   generate(BurkinaFasoEth)
+{txt}
+{com}. quietly tabulate ethnicitycm,   generate(CameronEth)
+{txt}
+{com}. quietly tabulate ethnicityci98, generate(IvoryCoastEth)
+{txt}
+{com}. quietly tabulate ethnicitycd,   generate(CongoEth)
+{txt}
+{com}. quietly tabulate ethnicityet,   generate(EthiopiaEth)
+{txt}
+{com}. quietly tabulate ethnicitygh,   generate(GhanaEth)
+{txt}
+{com}. quietly tabulate ethnicitygn,   generate(GuineaEth)
+{txt}
+{com}. quietly tabulate ethnicityke,   generate(KenyaEth)
+{txt}
+{com}. quietly tabulate ethnicitymw,   generate(MalawiEth)
+{txt}
+{com}. quietly tabulate ethnicityml,   generate(MaliEth)
+{txt}
+{com}. quietly tabulate ethnicitymz,   generate(MozambiqueEth)
+{txt}
+{com}. quietly tabulate ethnicitynm,   generate(NamibiaEth)
+{txt}
+{com}. quietly tabulate ethnicityne,   generate(NigerEth)
+{txt}
+{com}. quietly tabulate ethnicityng,   generate(NigeriaEth)
+{txt}
+{com}. quietly tabulate ethnicitysn,   generate(SenegalEth)
+{txt}
+{com}. quietly tabulate ethnicityza,   generate(SouthAfricaEth)
+{txt}
+{com}. quietly tabulate ethnicityug,   generate(UgandaEth)
+{txt}
+{com}. quietly tabulate ethnicityzm,   generate(ZambiaEth)
+{txt}
+{com}. quietly tabulate ethnicityzw,   generate(ZimbabweEth)
+{txt}
+{com}. * replace missing values with 0
+. foreach v of varlist BeninEth1-ZimbabweEth6 {c -(}
+{txt}  2{com}. replace `v' = 0 if missing(`v')
+{txt}  3{com}. {c )-}
+{txt}(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(717,668 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(698,976 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(728,053 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(751,145 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(741,985 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(748,097 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(719,806 real changes made)
+(736,876 real changes made)
+(736,876 real changes made)
+(736,876 real changes made)
+(736,876 real changes made)
+(736,876 real changes made)
+(736,876 real changes made)
+(736,876 real changes made)
+(736,876 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(704,741 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(695,271 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(705,324 real changes made)
+(745,623 real changes made)
+(745,623 real changes made)
+(745,623 real changes made)
+(745,623 real changes made)
+(745,623 real changes made)
+(745,623 real changes made)
+(745,623 real changes made)
+(745,623 real changes made)
+(745,623 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(737,224 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(724,773 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(676,629 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(704,956 real changes made)
+(745,002 real changes made)
+(745,002 real changes made)
+(745,002 real changes made)
+(745,002 real changes made)
+(745,002 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(742,941 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(716,358 real changes made)
+(744,267 real changes made)
+(744,267 real changes made)
+(744,267 real changes made)
+(744,267 real changes made)
+(744,267 real changes made)
+(744,267 real changes made)
+
+{com}. * label variable
+. label var female "Female"
+{txt}
+{com}. rename urban urban1
+{res}{txt}
+{com}. gen urban = 0
+{txt}
+{com}. replace urban  = 1 if urban1 == 1
+{txt}(191,508 real changes made)
+
+{com}. drop urban1
+{txt}
+{com}. label var urban "Urban"
+{txt}
+{com}. label var wealthq "Wealth"
+{txt}
+{com}. ********************************************************************************
+. * gen coethnic varialbe similar to F&R 
+. gen coethnic = (coethnic_4 + coethnic_3 + coethnic_2 + coethnic_1)/4
+{txt}
+{com}. label var coethnic "Coethnic"
+{txt}
+{com}. * average polity2 score for the 7 years 
+. gen Polity = (polity2_4 + polity2_3 + polity2_2 + polity2_1)/4
+{txt}(6,033 missing values generated)
+
+{com}. label var Polity "Average polity over the last 4 years."
+{txt}
+{com}. * interaction between polity and edu
+. gen inter_polity2_coethnic = Polity * coethnic
+{txt}(6,033 missing values generated)
+
+{com}. label var inter_polity2_coethnic "\textit{c -(}Polity{c )-}$\times$\textit{c -(}Coethnic Leader{c )-}"
+{txt}
+{com}. 
+. ********************************************************************************
+. * democratic groups
+. gen Democracy = 0
+{txt}
+{com}. replace Democracy = 1 if Polity<=9 & Polity>=6
+{txt}(190,288 real changes made)
+
+{com}. 
+. gen Anocracy = 0
+{txt}
+{com}. replace Anocracy = 1 if Polity>=-5 & Polity<=5
+{txt}(422,969 real changes made)
+
+{com}. // gen OpenAnocracy = 0
+. // replace OpenAnocracy = 1 if Polity>=1 & Polity<=5
+. //
+. // gen ClosedAnocracy = 0
+. // replace ClosedAnocracy = 1 if Polity<=0 & Polity>=-5
+. 
+. gen Autocracy = 0
+{txt}
+{com}. replace Autocracy = 1 if Democracy == 0 & Anocracy == 0
+{txt}(143,480 real changes made)
+
+{com}. 
+. // gen Failed_or_Occupied = 0
+. // replace Failed_or_Occupied = 1 if Polity == .
+. ********************************************************************************
+. * generate interaction terms between the groups and coethnicity
+. gen inter_Democracy_coethnic = Democracy*coethnic
+{txt}
+{com}. gen inter_Anocracy_coethnic = Anocracy*coethnic
+{txt}
+{com}. // gen inter_OpenAnocracy_coethnic = OpenAnocracy*coethnic
+. // gen inter_ClosedAnocracy_coethnic = ClosedAnocracy*coethnic
+. gen inter_Autocracy_coethnic = Autocracy*coethnic
+{txt}
+{com}. // gen inter_FailedOccupied_coethnic = Failed_or_Occupied*coethnic
+. label var inter_Democracy_coethnic "$ I_{c -(} 10 \geq Polity IV \geq 6{c )-} \times Coethnic Leader $"
+{txt}
+{com}. label var inter_Anocracy_coethnic "$ I_{c -(} 5 \geq Polity IV \geq -5{c )-} \times Coethnic Leader $"
+{txt}
+{com}. // label var inter_OpenAnocracy_coethnic "$ I_{c -(} 5 \geq Polity IV \geq 1{c )-} \times Coethnic Leader $"
+. // label var inter_ClosedAnocracy_coethnic "$ I_{c -(} 0 \geq Polity IV \geq -5{c )-} \times Coethnic Leader $"
+. label var inter_Autocracy_coethnic "$ I_{c -(} -5 \geq Polity IV \geq 10{c )-} \times Coethnic Leader $"
+{txt}
+{com}. // label var inter_FailedOccupied_coethnic "\textit{c -(}Failed state{c )-}$\times$\textit{c -(}Coethnic Leader{c )-}"
+. ********************************************************************************
+. ********************************************************************************
+. * regressions on Wealth
+. ********************************************************************************
+. gen birth_year = intyear - age
+{txt}
+{com}. * set up local variables
+. local DemInterCoethVars inter_Democracy_coethnic inter_Anocracy_coethnic inter_ClosedAnocracy_coethnic
+{txt}
+{com}. local PolityGroups Democracy Anocracy ClosedAnocracy
+{txt}
+{com}. local EthnicFEs "BeninEth1-ZimbabweEth6"
+{txt}
+{com}. // local RegionFEs "geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015"
+. egen EthClusters = group(BeninEth1-ZimbabweEth6)
+{res}{txt}
+{com}. 
+. * Gen wealth vars
+. gen Poorest = .
+{txt}(756,737 missing values generated)
+
+{com}. replace Poorest = 0 if wealthq != 1
+{txt}(631,987 real changes made)
+
+{com}. replace Poorest = 1 if wealthq == 1
+{txt}(124,750 real changes made)
+
+{com}. 
+. gen Poorer = .
+{txt}(756,737 missing values generated)
+
+{com}. replace Poorer = 0 if wealthq != 2
+{txt}(631,843 real changes made)
+
+{com}. replace Poorer = 1 if wealthq == 2
+{txt}(124,894 real changes made)
+
+{com}. 
+. gen Middle = .
+{txt}(756,737 missing values generated)
+
+{com}. replace Middle = 0 if wealthq != 3
+{txt}(625,352 real changes made)
+
+{com}. replace Middle = 1 if wealthq == 3
+{txt}(131,385 real changes made)
+
+{com}. 
+. gen Richer = .
+{txt}(756,737 missing values generated)
+
+{com}. replace Richer = 0 if wealthq != 4
+{txt}(616,738 real changes made)
+
+{com}. replace Richer = 1 if wealthq == 4
+{txt}(139,999 real changes made)
+
+{com}. 
+. gen Richest = .
+{txt}(756,737 missing values generated)
+
+{com}. replace Richest = 0 if wealthq != 5
+{txt}(592,980 real changes made)
+
+{com}. replace Richest = 1 if wealthq == 5
+{txt}(163,757 real changes made)
+
+{com}. 
+. * label variable
+. label var female "Female"
+{txt}
+{com}. replace female = 0 if female != 1
+{txt}(195,622 real changes made)
+
+{com}. rename urban urban1
+{res}{txt}
+{com}. gen urban = 0
+{txt}
+{com}. replace urban  = 1 if urban1 == 1
+{txt}(191,508 real changes made)
+
+{com}. drop urban1
+{txt}
+{com}. label var urban "Urban"
+{txt}
+{com}. save "$datasets/DHS_Wealth.dta", replace
+{txt}{p 0 4 2}
+(file {bf}
+/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets/DHS_Wealth.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets/DHS_Wealth.dta{rm}
+saved
+{p_end}
+
+{com}. ********************************************************************************
+. * Ethnic favoritism in Wealth 
+. * with Country-Year fixed effects,
+. * Age FE and 5 years groups FE
+. // eststo did_ethfav_ct_w: xi: reg  wealthq coethnic urban female i.cowcode_4*i.birth_year  i.age i.age5year , cluster(birth_year) noomit  
+. // quietly estadd local fixedcountry "Yes", replace
+. // quietly estadd local fixedyear "Yes", replace
+. // quietly estadd local fixedcountry_year "Yes", replace
+. // quietly estadd local regionFE "No", replace
+. // quietly estadd local EthnicFE "No", replace
+. // quietly estadd local clusterSE "Yes", replace
+. // quietly estadd local Controls "Yes", replace
+. 
+. ********************************************************************************
+. * Ethnic favoritism in education 
+. * with country and birth 
+. * year fixed effects and
+. * ethnicity FE
+. // eststo did_ethfav_ethFE_w:   reghdfe         Richest coethnic urban female                                                           , absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
+. // eststo did_ethfav_dem_w:     reghdfe         Richest coethnic urban female                   if Democracy == 1       , absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
+. // eststo did_ethfav_anoc_w:    reghdfe         Richest coethnic urban female                   if Anocracy == 1        , absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit  
+. // eststo did_ethfav_autoc_w:   reghdfe         Richest coethnic urban female                   if Autocracy == 1       , absorb(i.birth_year  i.age) cluster(EthClusters) noomit  
+. // #delimit;
+. // coefplot     (did_ethfav_dem_w, label(Democracy))
+. //                      (did_ethfav_anoc_w, label(Anocracy)) 
+. //                      (did_ethfav_autoc_w, label(Autocracy)),
+. //                      aseq swapnames legend(off)
+. //                      title("The Co-ethnic Effect on Wealth" "with Ethnic Groups and Time Fixed Effects by Democratic Group") 
+. //                      keep(coethnic) xline(0, lcolor(red))
+. //                      msymbol(O) msize(large) levels(90)
+. //                      coeflabels(did_ethfav_dem_w = "Democracy"
+. //                                         did_ethfav_anoc_w = "Anocracy"
+. //                                         did_ethfav_autoc_w = "Autocracy");
+. // graph export coeth_byGroups3.png, replace;
+. //  #delimit cr
+. // ********************************************************************************
+. // ********************************************************************************
+. // * Ethnic favoritism in education 
+. // * with ragion and birth 
+. // * year fixed effects and
+. // * ethnicity FE
+. // // foreach v of varlist geo_bj1996_2011 geo_bf2003_2010 geo_bi2010_2016 geo_cm1991_2011 geo_cd2007_2013 geo_et2000_2016 geo_gh1988_2014 geo_gn1999_2012 geo_ke1989_2014 geo_mw1992_2016 geo_ml1987_2012 geo_mz1997_2011 geo_nm1992_2013 geo_ne1992_2012 geo_ng2003_2013 geo_sn1986_2017 geo_za1998_2016 geo_ug1995_2016 geo_zm1992_2013 geo_zw1994_2015 {c -(}
+. // // replace `v' = 0 if missing(`v')
+. // // {c )-}
+. // //
+. // // eststo did_ethfav_region_w:xi: reg  Richest coethnic urban female i.`RegionFEs' i.birth_year   i.age i.age5year, cluster(birth_year)
+. // // quietly estadd local fixedcountry "No", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "No", replace
+. // // quietly estadd local regionFE "Yes", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // * regressions on interaction between democracy and Completed Primary Education
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with time-country FE
+. // ********************************************************************************
+. // // eststo did_dem_counttime_w: xi: reg  Richest $DemInterCoethVars $PolityGroups urban female coethnic i.cowcode_4*i.birth_year   i.age i.age5year, cluster(birth_year) noomit  
+. // // quietly estadd local fixedcountry "Yes", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "Yes", replace
+. // // quietly estadd local regionFE "No", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with ethnicity FE
+. // ********************************************************************************
+. // eststo did_dem_eth_w: reghdfe  Richest $DemInterCoethVars $PolityGroups urban female coethnic, absorb(i.birth_year  i.age  i.EthClusters) cluster(EthClusters) noomit
+. // ********************************************************************************
+. // * Coethnicity and Democracy
+. // * with Regional FE
+. // ********************************************************************************
+. // // eststo did_dem_reg_w:  xi: reg  Richest $DemInterCoethVars $PolityGroups urban female coethnic i.`RegionFEs' i.birth_year  i.age i.age5year , cluster(birth_year)
+. // // quietly estadd local fixedcountry "No", replace
+. // // quietly estadd local fixedyear "Yes", replace
+. // // quietly estadd local fixedcountry_year "No", replace
+. // // quietly estadd local regionFE "Yes", replace
+. // // quietly estadd local EthnicFE "No", replace
+. // // quietly estadd local clusterSE "Yes", replace
+. // // quietly estadd local Controls "Yes", replace
+. // ********************************************************************************
+. // *contin polity score regression
+. // ********************************************************************************
+. // eststo did_contdem_w: reghdfe  Richest inter_polity2_coethnic coethnic urban female Polity, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+. // ********************************************************************************
+. // * Democracy-Diictatorship index regression
+. // ********************************************************************************
+. // * average democracy-diictatorship index
+. // gen Democracy_dem_dic = (democracy_4 + democracy_3 + democracy_2 + democracy_1)/4
+. // label var Democracy_dem_dic "Democracy"
+. // gen inter_dem_dic = Democracy_dem_dic*coethnic
+. // eststo Democracy_Wdemdic: reghdfe Richest inter_dem_dic coethnic Democracy_dem_dic urban female, absorb(i.birth_year  i.age i.EthClusters) cluster(EthClusters) noomit
+. 
+{txt}end of do-file
+
+{com}. 
+. * Tables
+. // do "$programs/11-Regression_tables_graphs.do"
+. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/hhadah/Documents/GiT/ethnicfavoritism/logs.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}16 Dec 2022, 09:30:28
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

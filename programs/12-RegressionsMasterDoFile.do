@@ -6,22 +6,28 @@ clear
 cls
 eststo clear
 
+global raw      "/Users/hhadah/Documents/GiT/ethnicfavoritism/data/raw"
+global datasets "/Users/hhadah/Documents/GiT/ethnicfavoritism/data/datasets"
+global RegressionResults "/Users/hhadah/Documents/GiT/ethnicfavoritism/output"
+global LogFile "/Users/hhadah/Documents/GiT/ethnicfavoritism/logs"
+global programs "/Users/hhadah/Documents/GiT/ethnicfavoritism/programs"
+
 log using "$LogFile", replace
 
 * Completed Primary School Script
-do "$SchoolScript"
+do "$programs/07-Regressions_PrimComp.do"
 
 * Infant Mortality Script
-do "$MortScript" 
+do "$programs/08-Regressions_infmort.do" 
 
 * Electricity and water access script
-do "$ElecWaterScript"
+do "$programs/09-Regressions_elec_wat.do"
 
 * Wealth Script
-do "$WealthScript"
+do "$programs/10-Regressions_Wealth.do"
 
 * Tables
-do "$TablesScript"
+// do "$programs/11-Regression_tables_graphs.do"
 
 log close
 clear

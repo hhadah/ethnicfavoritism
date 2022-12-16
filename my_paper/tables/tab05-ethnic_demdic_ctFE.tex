@@ -1,0 +1,39 @@
+\begin{table}[!h]
+
+\caption{Ethnic favoritism and continuous democracy measure results. \label{tab:ethdemdic}}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{threeparttable}
+\begin{tabular}[t]{lccccc}
+\toprule
+  & \specialcell{(1) \\ Schooling} & \specialcell{(2) \\ Infant Survival} & \specialcell{(3) \\ Wealth} & \specialcell{(4) \\ Electrification} & \specialcell{(5) \\ Clean Water}\\
+\midrule
+$D-DIndex\times Coethnic$ & \num{0.07} & \num{-0.01} & \num{0.11} & \num{0.06} & \num{-0.14}\\
+ & (\num{0.06}) & (\num{0.01}) & (\num{0.07}) & (\num{0.04}) & (\num{0.11})\\
+\midrule
+N & \num{988262} & \num{2070052} & \num{452222} & \num{453673} & \num{453673}\\
+Mean & \num{0.65} & \num{0.91} & \num{0.27} & \num{0.35} & \num{0.22}\\
+Birth Year FE & X & X & X & X & X\\
+Age FE & X & X & X & X & X\\
+Country Specific Ethnic Group FE & X & X & X & X & X\\
+\bottomrule
+\multicolumn{6}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\begin{tablenotes}
+\item[1] \footnotesize{In this table, I am reporting the estimates of equation \ref{eq1}. 
+                      I present the results of the interaction between the coethnic variable and 
+                      \textit{Polity IV } groups on primary school completions in column 1, infant 
+                      survival in column 2, wealth quintile in column 3, electrification in column 4 
+                      and access to clean drinking water in column 4. Primary school completion is a 
+                      dummy variable that is equal to one if a person completed primary school and 
+                      zero otherwise. Infant survival is a dummy variable that is equal to one if an 
+                      infant survived the first 12 months of life. Electrification is a dummy variable
+                      that is equal to one if a household has electricity. Finally, access to clean 
+                      drinking water is an ordinal variable that has values from 1, worst water source, to 4.}
+\item[2] \footnotesize{\textit{Polity IV } score in this specification is continuous. It takes
+                      values that range from most autocratic $-10$ to most democratic $10$}
+\item[3] \footnotesize{Standard errors are clustered on ethnic groups. All 
+                      results include ethnic group, time and age fixed effects.}
+\end{tablenotes}
+\end{threeparttable}}
+\end{table}

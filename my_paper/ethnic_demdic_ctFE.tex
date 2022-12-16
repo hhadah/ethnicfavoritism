@@ -1,0 +1,34 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Ethnic faovirtism and Democracy-Dictatorship index results.}
+
+\begin{adjustbox}{max width=\textwidth}
+\begin{threeparttable}[t]
+  \centering
+\begin{tabular}{l*{5}{c}}
+\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+                    &\multicolumn{1}{c}{Schooling}&\multicolumn{1}{c}{Infant Survival}&\multicolumn{1}{c}{Wealth}&\multicolumn{1}{c}{Electrification}&\multicolumn{1}{c}{Water}\\
+\midrule
+$D-D Index \times Coethnic$&       0.073         &      -0.008         &      -0.069         &       0.057         &      -0.142         \\
+                    &     (0.058)         &     (0.007)         &     (0.056)         &     (0.037)         &     (0.112)         \\
+\addlinespace
+Coethnic            &      -0.066         &       0.008         &       0.135\sym{***}&       0.002         &      -0.006         \\
+                    &     (0.040)         &     (0.006)         &     (0.042)         &     (0.015)         &     (0.066)         \\
+                    \midrule
+Observations        &  988,238         & 2,070,049         &  380,253         &  453,655         &  453,655         \\
+\hline
+\multicolumn{6}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\begin{footnotesize}
+ \begin{tablenotes}[normal,flushleft]
+     \item[1] In this table, I am reporting the estimates of equation \ref{eqFR1}. I present the results of the interaction between the coethnic variable and \textit{Polity IV } groups on primary school completions in column 1, infant survival in column 2, wealth quintile in column 3, electrification in column 4 and access to clean drinking water in column 4. Primary school completion is a dummy variable that is equal to one if a person completed primary school and zero otherwise. Infant survival is a dummy variable that is equal to one if an infant survived the first 12 months of life. Electrification is a dummy variable that is equal to one if a household has electricity. Finally, access to clean drinking water is an ordinal variable that has values from 1, worst water source, to 4.
+     \item[2] In this specification, I used the Democracy-Dictatorship index as a measure for checks and balances. The Democracy-Dictatorship index is an indicator variable that is equal to 1 if a country is democratic and zero otherwise.
+     \item[3] Standard errors are clustered on ethnic groups. All results include ethnic group, time and age fixed effects.
+   \end{tablenotes}
+   \end{footnotesize}
+    \end{threeparttable}%
+\label{tab:ethdemdic}
+\end{adjustbox}
+\end{table}

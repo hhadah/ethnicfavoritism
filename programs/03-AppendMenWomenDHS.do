@@ -7,8 +7,14 @@ men recodes.
 cls
 clear
 ********************************************************************************
+use "$raw/MenRecodeVarMatched.dta"
+gen female = 0
+save "$raw/MenRecodeVarMatched.dta", replace
+clear
+
 * Open Women recode
 use "$raw/WomenRecode.dta"
+
 ********************************************************************************
 * Append Women and Men recodes
 append using "$raw/MenRecodeVarMatched.dta", force

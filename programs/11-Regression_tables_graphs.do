@@ -6,8 +6,6 @@ from the different regressions I ran
 clear
 cls
 
-global RegressionResults "/Users/hhadah/Dropbox/EthnicFav copy/Analysis/Regressions_and_Results"
-
 * set working directory
 cd "$RegressionResults"
 
@@ -20,7 +18,7 @@ cd "$RegressionResults"
 //  	replace label se star(* 0.10 ** 0.05 *** 0.01)
 //  	s(fixedcountry fixedyear fixedcountry_year regionFE EthnicFE clusterSE Controls N,
 //  	label("Country FE" "Year FE" "Country-time FE"  "Region FE" "Ethnicity FE" "Clustered SE" "Controls"  "Observations"))
-// 	title("Ethnic faovirtism results with time--country FE")
+// 	title("Ethnic favoritism results with time--country FE")
 //  	keep(coethnic)
 // 	coeflabels(coethnic Coethnic);
 //  #delimit cr
@@ -34,7 +32,7 @@ cd "$RegressionResults"
      "Standard errors are clustered on ethnic groups. All results include ethnic group, time and age fixed effects.")
 	s(N,
  	label("Observations"))
-	title("Ethnic faovirtism results.")
+	title("Ethnic favoritism results.")
 	keep(coethnic)
 	booktabs alignment(D{.}{.}{-1})
 	f b(3) se(3)
@@ -48,7 +46,7 @@ cd "$RegressionResults"
      "Standard errors are clustered on ethnic groups. All results include ethnic group, time and age fixed effects.")
 	s(N,
  	label("Observations"))
-	title("Ethnic faovirtism results.")
+	title("Ethnic favoritism results.")
 	keep(coethnic)
 	booktabs alignment(D{.}{.}{-1})
 	f b(3) se(3)
@@ -61,7 +59,7 @@ cd "$RegressionResults"
 //  	replace label se star(* 0.10 ** 0.05 *** 0.01)
 //  	s(fixedcountry fixedyear fixedcountry_year regionFE EthnicFE clusterSE Controls N,
 // 	label("Country FE" "Year FE" "Country-time FE"    "Region FE" "Ethnicity FE" "Clustered SE" "Controls" "Observations"))
-// 	title("Ethnic faovirtism results with regional FE")
+// 	title("Ethnic favoritism results with regional FE")
 //  	keep(coethnic)
 // 	coeflabels(coethnic Coethnic);
 //  #delimit cr
@@ -74,7 +72,7 @@ cd "$RegressionResults"
 //  	replace label se star(* 0.10 ** 0.05 *** 0.01)
 //  	s(fixedcountry fixedyear fixedcountry_year regionFE EthnicFE clusterSE Controls N,
 //  	label("Country FE" "Year FE" "Country-time FE"    "Region FE" "Ethnicity FE" "Clustered SE" "Controls" "Observations"))
-// 	title("Ethnic faovirtism and democracy results with time--country FE")
+// 	title("Ethnic favoritism and democracy results with time--country FE")
 // 	keep($DemInterCoethVars coethnic)
 // 	coeflabels(inter_Democracy_coethnic " \$Democracy \times Coethnic\$ " inter_OpenAnocracy_coethnic "\$Open Anocracy \times Coethnic\$" inter_ClosedAnocracy_coethnic "\$Closed Anocracy \times Coethnic\$" coethnic Coethnic);
 //  #delimit cr
@@ -85,7 +83,7 @@ cd "$RegressionResults"
 //  	replace label se star(* 0.10 ** 0.05 *** 0.01)
 //  	s(N,
 //  	label("Observations"))
-// 	title("Ethnic faovirtism and democracy results with ethnic groups FE")
+// 	title("Ethnic favoritism and democracy results with ethnic groups FE")
 // 	keep($DemInterCoethVars coethnic)
 // 	coeflabels(inter_Democracy_coethnic "\$Democracy \times Coethnic\$" inter_OpenAnocracy_coethnic "\$Open Anocracy \times Coethnic\$" inter_ClosedAnocracy_coethnic "\$Closed Anocracy \times Coethnic\$" coethnic Coethnic);
 //  #delimit cr
@@ -98,7 +96,7 @@ cd "$RegressionResults"
 	 "Standard errors are clustered on ethnic groups. All results include ethnic group, time and age fixed effects.")
 	s(N,
  	label("Observations"))
-	title("Ethnic faovirtism and democracy results.")
+	title("Ethnic favoritism and democracy results.")
 	keep($DemInterCoethVars coethnic)
 	booktabs alignment(D{.}{.}{-1})
 	f b(3) se(3)
@@ -111,7 +109,7 @@ cd "$RegressionResults"
 //  	replace label se star(* 0.10 ** 0.05 *** 0.01)
 //  	s(fixedcountry fixedyear fixedcountry_year regionFE EthnicFE clusterSE Controls N,
 //  	label("Country FE" "Year FE" "Country-time FE"    "Region FE" "Ethnicity FE" "Clustered SE" "Controls" "Observations"))
-// 	title("Ethnic faovirtism and democracy results with regional FE")
+// 	title("Ethnic favoritism and democracy results with regional FE")
 // 	keep($DemInterCoethVars coethnic)
 // 	coeflabels(inter_Democracy_coethnic "\$Democracy \times Coethnic\$" inter_OpenAnocracy_coethnic "\$Open Anocracy \times Coethnic\$" inter_ClosedAnocracy_coethnic "\$Closed Anocracy \times Coethnic\$" coethnic Coethnic);
 //  #delimit cr
@@ -125,7 +123,7 @@ cd "$RegressionResults"
 	 "Standard errors are clustered on ethnic groups. All results include ethnic group, time and age fixed effects.")
  	s(N,
  	label("Observations"))
-	title("Ethnic faovirtism and continuous democracy measure results.") 	
+	title("Ethnic favoritism and continuous democracy measure results.") 	
 	booktabs alignment(D{.}{.}{-1})
 	f b(3) se(3)
 	keep(inter_polity2_coethnic coethnic)
@@ -141,7 +139,7 @@ cd "$RegressionResults"
 	 "Standard errors are clustered on ethnic groups. All results include ethnic group, time and age fixed effects.")
 	s(N,
  	label("Observations"))
- 	title("Ethnic faovirtism and Democracy-Dictatorship index results.") 	
+ 	title("Ethnic favoritism and Democracy-Dictatorship index results.") 	
 	booktabs alignment(D{.}{.}{-1})
 	f b(3) se(3)
 	keep(inter_dem_dic coethnic)

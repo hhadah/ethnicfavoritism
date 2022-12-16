@@ -5,8 +5,7 @@ summary statistics for men and women recode
 clear
 cls
 
-global DataDHS "/Users/hhadah/Dropbox/EthnicFav copy/Analysis/RawData/DHS_append"
-use "$DataDHS/DHS_MenWomen.dta"
+use "$raw/DHS_MenWomen.dta"
 
 gen Urban = .
 replace Urban = 0 if urban == 2
