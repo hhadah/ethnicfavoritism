@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex HussainHadahEthFav"] 1671233961 "HussainHadahEthFav.aux" "HussainHadahEthFav.bbl" "HussainHadahEthFav" 1671234856
+["bibtex HussainHadahEthFav"] 1671298439 "HussainHadahEthFav.aux" "HussainHadahEthFav.bbl" "HussainHadahEthFav" 1671299359
   "/Users/hhadah/Library/texmf/bibtex/bst/chicago-bib.bst" 1616018038 37366 45205f43c7252fc042dda3578dbe7344 ""
-  "HussainHadahEthFav.aux" 1671234856 18075 9c9bf475256cb0f7d3bd5e22b1ddb30f "pdflatex"
+  "HussainHadahEthFav.aux" 1671299359 18075 9c9bf475256cb0f7d3bd5e22b1ddb30f "pdflatex"
   "ethnicfav.bib" 1636829692 20580 777b83f88f0e9b09e15609e4672aef8a ""
   (generated)
   "HussainHadahEthFav.bbl"
   "HussainHadahEthFav.blg"
-["pdflatex"] 1671234849 "HussainHadahEthFav.tex" "HussainHadahEthFav.pdf" "HussainHadahEthFav" 1671234856
+["pdflatex"] 1671299352 "HussainHadahEthFav.tex" "HussainHadahEthFav.pdf" "HussainHadahEthFav" 1671299359
   "/Users/hhadah/Library/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643922251 2796795 9b37e65f83922863af74fc947fc5804c ""
   "/Users/hhadah/Library/texmf/tex/latex/multicol.sty" 1084240224 25928 526edd03c609ff2cdc4805a41441008e ""
   "/Users/hhadah/Library/texmf/tex/latex/setspace.sty" 1130857036 22518 969fcbccb9feb6c080f52825bb5fe1e1 ""
@@ -273,18 +273,18 @@
   "1990.png" 1588443962 696409 514a2bd1d9eab3566cc799a498b5369e ""
   "1995.png" 1588444120 696766 684551cd55809da7558d12b3023ba4c3 ""
   "2000.png" 1588444308 699606 37aedc26437b38e2406b27c54b86afe7 ""
-  "HussainHadahEthFav.aux" 1671234856 18075 9c9bf475256cb0f7d3bd5e22b1ddb30f "pdflatex"
-  "HussainHadahEthFav.bbl" 1671233961 17276 ec6dc14af33522da729634c32377c3c7 "bibtex HussainHadahEthFav"
-  "HussainHadahEthFav.out" 1671234856 2922 fc4c6ce0e8706709b1443421ddc587b1 "pdflatex"
-  "HussainHadahEthFav.tex" 1671234843 73507 b73f8d72b2e9b38378938595b6a40be8 ""
-  "figure/coeth_dem_ethFE.png" 1671156219 160646 06bbbadf7a3ba5e901bea8d2a07f8f6e ""
+  "HussainHadahEthFav.aux" 1671299359 18075 9c9bf475256cb0f7d3bd5e22b1ddb30f "pdflatex"
+  "HussainHadahEthFav.bbl" 1671298440 17276 ec6dc14af33522da729634c32377c3c7 "bibtex HussainHadahEthFav"
+  "HussainHadahEthFav.out" 1671299359 2922 fc4c6ce0e8706709b1443421ddc587b1 "pdflatex"
+  "HussainHadahEthFav.tex" 1671299351 73472 3d6e88ef48fe01621b3f4fb55480ce54 ""
+  "figure/coeth_dem_ethFE.png" 1671298420 214175 a15f5f7aab9426f4bab122e713ebbbef ""
   "figure/coeth_demdic_ctFE.png" 1671224767 190543 556d872fd464fa2194caa3a35dd0ec63 ""
-  "figure/coeth_ethFE.png" 1671211337 169683 d6b443218b0be670cb319cb70bcfd49f ""
+  "figure/coeth_ethFE.png" 1671298333 195138 124df593b172faa131ab4ee102fc5aea ""
   "tables/tab01-sumtab.tex" 1671234619 1454 dda4bb8841aecb25da541b1ed6b1a14e ""
-  "tables/tab02-ethnic_fav_tab_ethFE.tex" 1671209262 2070 0264611286150d376f435befdfaf2a14 ""
-  "tables/tab03-ethnic_demfav_tab_ethFE.tex" 1671212386 2579 4335e096e1a13a23dd4105b24a8ddd5c ""
-  "tables/tab04-ethnic_demfav_cont.tex" 1671225731 2386 85da6f2251371a55c79d1ebbc75cb03c ""
-  "tables/tab05-ethnic_demdic_ctFE.tex" 1671229038 2381 e6ee7693bc076cf3c3696c54a9c4228d ""
+  "tables/tab02-ethnic_fav_tab_ethFE.tex" 1671244335 1965 b03c776c302f56587131cd1b3e4eb75d ""
+  "tables/tab03-ethnic_demfav_tab_ethFE.tex" 1671249283 2485 fe586ee6c9be9db8aa28cd6c49b28f7a ""
+  "tables/tab04-ethnic_demfav_cont.tex" 1671299347 2281 d186bc6544188c3059469d91d9d4c3f0 ""
+  "tables/tab05-ethnic_demdic_ctFE.tex" 1671299227 2276 8a004d9293922f49896b0b7e94cdedf3 ""
   (generated)
   "HussainHadahEthFav.aux"
   "HussainHadahEthFav.log"

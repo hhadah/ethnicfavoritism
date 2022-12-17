@@ -25,11 +25,11 @@ means_wat      <- DHS_ElectrificationWater |>
 means_wealth   <- DHS_Wealth |> 
   summarise(Richest = mean(Richest, na.rm = T))
 
-mean_row <-  data.frame(Coefficients = c('Mean', round(means_primschl, digits = 2), round(means_inf, digits = 2), round(means_ele, digits = 2), round(means_wat, digits = 2), round(means_wealth, digits = 2)))
+mean_row <-  data.frame(Coefficients = c('Mean', round(means_primschl, digits = 3), round(means_inf, digits = 3), round(means_ele, digits = 3), round(means_wat, digits = 3), round(means_wealth, digits = 3)))
 
 colnames(mean_row)<-LETTERS[1:6]
 
-attr(mean_row, 'position') <- c(6)
+attr(mean_row, 'position') <- c(5)
 cm <- c("coethnic:Democracy" = "$Democracy\\times Coethnic$",
         "coethnic:Anocracy"  = "$Anocracy\\times Coethnic$"
         #"frac_hispanic"  = "Fraction Hispanic"
@@ -42,15 +42,15 @@ cm <- c("coethnic:Democracy" = "$Democracy\\times Coethnic$",
 ) 
 gm <- tibble::tribble(
   ~raw,        ~clean,          ~fmt,
-  "nobs",      "N",             0,
-  "FE: birth_year", "Birth Year FE", 0,
-  "FE: age", "Age FE", 0,
-  "FE: EthClusters", "Country Specific Ethnic Group FE", 0,
-  "std.error.type", "Standard Errors", 0,
+  "nobs",      "N",             0#,
+  # "FE: birth_year", "Birth Year FE", 0,
+  # "FE: age", "Age FE", 0,
+  # "FE: EthClusters", "Country Specific Ethnic Group FE", 0,
+  # "std.error.type", "Standard Errors", 0,
   #"r.squared", "R squared", 3
 )
 
-modelsummary(reg1, fmt = 2, 
+modelsummary(reg1, fmt = 3, 
              add_rows = mean_row,
              coef_map = cm,
              gof_map = gm,
@@ -79,7 +79,7 @@ modelsummary(reg1, fmt = 2,
            escape = F, threeparttable = T
   )
 
-regression_tab <- modelsummary(reg1, fmt = 2,  
+regression_tab <- modelsummary(reg1, fmt = 3,  
                                output = "latex", 
                                coef_map = cm,
                                add_rows = mean_row,

@@ -24,19 +24,24 @@ cm <- cm <- c("coethnic:Democracy" = "$Democracy\\times Coethnic$",
         # "ThirdGen" = "Third Generation"
 ) 
 
-dat <- map_dfr(c(.95), function(x) {
+dat1 <- map_dfr(c(.95), function(x) {
   modelplot(reg1, conf_level = x, draw = FALSE) |> 
     mutate(.width = x) |> 
-    filter(term == "coethnic × Democracy" | term == "coethnic × Anocracy")
+    filter(term == "coethnic × Democracy")
 })
 
-ggplot(dat, aes(
-  x = term, y = estimate,
-  ymin = conf.low, ymax = conf.high,
-  color = model)) + 
+dat2 <- map_dfr(c(.95), function(x) {
+  modelplot(reg1, conf_level = x, draw = FALSE) |> 
+    mutate(.width = x) |> 
+    filter(term == "coethnic × Anocracy")
+})
+
+p1 <- ggplot(dat1, aes(
+  x = model, y = estimate,
+  ymin = conf.low, ymax = conf.high, color = P5)) + 
   geom_point() + 
   geom_pointrange(aes(y = estimate, ymin = conf.low, ymax = conf.high)) +
-  geom_vline(xintercept = 0, color = 'red', linetype = 'dotted', size = 1) +
+  geom_hline(yintercept = 0, color = 'red', linetype = 'dotted', size = 1) +
   theme_customs() +
   theme(
     legend.position="none",
@@ -46,16 +51,42 @@ ggplot(dat, aes(
     axis.text.y  = element_text(size = 15),
     axis.text.x  = element_text(size = 15),
     axis.title.y = element_blank(),
-    axis.title.x = element_blank(),
+    axis.title.x = element_text(size = 18),
     panel.grid.major.x = element_blank(),
     panel.grid.minor.x = element_blank(),
     axis.line = element_line(colour = "black")
   ) +
-  labs(title = "The co-ethnic effect on the outcomes of interest \nwith Ethnic Groups and Time Fixed Effects")
+  scale_x_discrete(labels = label_wrap(10)) +
+  labs(#title = "The co-ethnic effect on the outcomes of interest \nwith Ethnic Groups and Time Fixed Effects",
+       x = TeX(r"( $I_{10 \geq Polity \geq 6} \times Coethnic$ )"))
 
-
-ggsave(paste0(figures_wd,"/coeth_ethFE.png"), width = 10, height = 4, units = "in")
-ggsave(paste0(thesis_plots,"/coeth_ethFE.png"), width = 10, height = 4, units = "in")
+p2 <- ggplot(dat2, aes(
+  x = model, y = estimate,
+  ymin = conf.low, ymax = conf.high, color = P5)) + 
+  geom_point() + 
+  geom_pointrange(aes(y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_hline(yintercept = 0, color = 'red', linetype = 'dotted', size = 1) +
+  theme_customs() +
+  theme(
+    legend.position="none",
+    strip.background = element_rect(
+      color="black", fill="white", size=1.5
+    ),
+    axis.text.y  = element_text(size = 15),
+    axis.text.x  = element_text(size = 15),
+    axis.title.y = element_blank(),
+    axis.title.x = element_text(size = 18),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    axis.line = element_line(colour = "black")
+  ) +
+  scale_x_discrete(labels = label_wrap(10)) +
+  labs(#title = "The co-ethnic effect on the outcomes of interest \nwith Ethnic Groups and Time Fixed Effects",
+       x = TeX(r"( $I_{5 \geq Polity \geq -5 \times Coethnic}$ )"))
+p1 / p2
+ggarrange(p1, p2, nrow = 1)
+ggsave(paste0(figures_wd,"/coeth_dem_ethFE.png"), width = 12, height = 4, units = "in")
+ggsave(paste0(thesis_plots,"/coeth_dem_ethFE.png"), width = 12, height = 4, units = "in")
 
 
 

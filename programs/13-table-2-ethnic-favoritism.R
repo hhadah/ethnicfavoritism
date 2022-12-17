@@ -1,17 +1,6 @@
 # This a script to
 # run a regression
 
-
-# open data
-DHS_PrimSchl                   <- read_dta(file.path(datasets,"DHS_PrimSchl.dta")) |> 
-  mutate(Democracy_dem_dic = (democracy_13 + democracy_12 + democracy_11 + democracy_10 + democracy_9 + democracy_8 + democracy_7)/7)
-DHS_Infantdata_polity_coethnic <- read_dta(file.path(datasets,"DHS_Infantdata_polity_coethnic.dta")) |> 
-  mutate(Democracy_dem_dic = (democracy))
-DHS_ElectrificationWater       <- read_dta(file.path(datasets,"DHS_ElectrificationWater.dta")) |> 
-  mutate(PipedWater = ifelse(AccessToWater == 4, 1, 0))
-DHS_Wealth                     <- read_dta(file.path(datasets,"DHS_Wealth.dta")) |> 
-  mutate(Democracy_dem_dic = (democracy_4 + democracy_3 + democracy_2 + democracy_1)/4)
-
 # By generation
 reg1 <- list(
   "\\specialcell{(1) \\\\ Schooling}"             = feols(CompletedPrimaryEdu ~ coethnic + urban + female | birth_year + age + EthClusters, data = DHS_PrimSchl, vcov = ~EthClusters),
@@ -36,7 +25,7 @@ means_wat      <- DHS_ElectrificationWater |>
 means_wealth   <- DHS_Wealth |> 
   summarise(Richest = mean(Richest, na.rm = T))
 
-mean_row <-  data.frame(Coefficients = c('Mean', round(means_primschl, digits = 2), round(means_inf, digits = 2), round(means_ele, digits = 2), round(means_wat, digits = 2), round(means_wealth, digits = 2)))
+mean_row <-  data.frame(Coefficients = c('Mean', round(means_primschl, digits = 3), round(means_inf, digits = 3), round(means_ele, digits = 3), round(means_wat, digits = 3), round(means_wealth, digits = 3)))
 
 colnames(mean_row)<-LETTERS[1:6]
 
@@ -52,15 +41,15 @@ cm <- c("coethnic" = "Coethnic"
 ) 
 gm <- tibble::tribble(
   ~raw,        ~clean,          ~fmt,
-  "nobs",      "N",             0,
-  "FE: birth_year", "Birth Year FE", 0,
-  "FE: age", "Age FE", 0,
-  "FE: EthClusters", "Country Specific Ethnic Group FE", 0,
-  "std.error.type", "Standard Errors", 0,
+  "nobs",      "N",             0#,
+  # "FE: birth_year", "Birth Year FE", 0,
+  # "FE: age", "Age FE", 0,
+  # "FE: EthClusters", "Country Specific Ethnic FE", 0,
+  # "std.error.type", "Standard Errors", 0,
   #"r.squared", "R squared", 3
 )
 
-modelsummary(reg1, fmt = 2, 
+modelsummary(reg1, fmt = 3, 
              add_rows = mean_row,
              coef_map = cm,
              gof_map = gm,
@@ -85,7 +74,7 @@ modelsummary(reg1, fmt = 2,
            escape = F, threeparttable = T
   )
 
-regression_tab <- modelsummary(reg1, fmt = 2,  
+regression_tab <- modelsummary(reg1, fmt = 3,  
                                output = "latex", 
                                coef_map = cm,
                                add_rows = mean_row,

@@ -24,7 +24,7 @@ cm <- c("coethnic" = "Coethnic"
         # "ThirdGen" = "Third Generation"
 ) 
 
-dat <- map_dfr(c(.95), function(x) {
+dat <- map_dfr(c(.9), function(x) {
   modelplot(reg1, conf_level = x, draw = FALSE) |> 
     mutate(.width = x) |> 
     filter(term == "coethnic")
@@ -46,12 +46,13 @@ ggplot(dat, aes(
     axis.text.y  = element_text(size = 15),
     axis.text.x  = element_text(size = 15),
     axis.title.y = element_blank(),
-    axis.title.x = element_blank(),
+    axis.title.x = element_text(size = 15),
     panel.grid.major.x = element_blank(),
     panel.grid.minor.x = element_blank(),
     axis.line = element_line(colour = "black")
   ) +
-  labs(title = "The co-ethnic effect on the outcomes of interest \nwith Ethnic Groups and Time Fixed Effects")
+  labs(title = "The co-ethnic effect on the outcomes of interest \nwith Ethnic Groups and Time Fixed Effects",
+       x     = "Estimates with 95% Confidence Interval")
 
 
 ggsave(paste0(figures_wd,"/coeth_ethFE.png"), width = 10, height = 4, units = "in")

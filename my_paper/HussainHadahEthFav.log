@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.3)  16 DEC 2022 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.3)  17 DEC 2022 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1632,17 +1632,17 @@ Package pdftex.def Info: figure/coeth_ethFE.png  used on input line 285.
  [17]
 (./tables/tab03-ethnic_demfav_tab_ethFE.tex
 LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
-(Font)              scaled to size 9.29993pt on input line 40.
+(Font)              scaled to size 9.29993pt on input line 37.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) [18 <./figure/coeth_ethFE.png>] [19]
-<figure/coeth_dem_ethFE.png, id=459, 686.565pt x 457.71pt>
+<figure/coeth_dem_ethFE.png, id=459, 3613.5pt x 1204.5pt>
 File: figure/coeth_dem_ethFE.png Graphic file (type png)
 <use figure/coeth_dem_ethFE.png>
 Package pdftex.def Info: figure/coeth_dem_ethFE.png  used on input line 368.
-(pdftex.def)             Requested size: 422.77664pt x 281.84967pt.
+(pdftex.def)             Requested size: 422.77664pt x 140.91307pt.
  [20 <./figure/coeth_dem_ethFE.png>]
 <figure/coeth_demdic_ctFE.png, id=465, 3011.25pt x 1204.5pt>
 File: figure/coeth_demdic_ctFE.png Graphic file (type png)
@@ -1667,7 +1667,7 @@ Package rerunfilecheck Info: File `HussainHadahEthFav.out' has not changed.
 Here is how much of TeX's memory you used:
  35592 strings out of 478287
  711246 string characters out of 5846751
- 966124 words of memory out of 5000000
+ 962124 words of memory out of 5000000
  52943 multiletter control sequences out of 15000+600000
  579216 words of font info for 190 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1681,7 +1681,7 @@ mf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></usr/local/texlive/2021/texmf-dis
 t/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts
 /type1/urw/ncntrsbk/uncri8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1
 /urw/times/utmr8a.pfb>
-Output written on HussainHadahEthFav.pdf (34 pages, 2779965 bytes).
+Output written on HussainHadahEthFav.pdf (34 pages, 2851062 bytes).
 PDF statistics:
  657 PDF objects out of 1000 (max. 8388607)
  583 compressed objects within 6 object streams

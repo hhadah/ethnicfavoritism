@@ -231,7 +231,7 @@ To estimate the average ethnic favoritism, I will run the following regression:
 
 \begin{equation}\label{eqFR1}
 \begin{split}
-    Y_{iceta} &= \beta_{0} + \beta_{1}coethnic_{iceta}
+    Y_{iceta} &= \beta_{1}coethnic_{iceta}
     + \delta_{t} + \gamma_{ce} +\eta_{a}  + \varepsilon_{iceta}
 \end{split}
 \end{equation}
@@ -250,20 +250,20 @@ The data I obtained allow me to construct a rich empirical model to investigate 
 The regression equations I will use are given by:
 \begin{equation}\label{eq1}
 \begin{split}
-   Y_{iceta} &= \beta_{0} + \beta_{1}coethnic_{iceta} + \beta_{2}DemocracyIndex_{ct} + \\
+   Y_{iceta} &= \beta_{1}coethnic_{iceta} + \beta_{2}DemocracyIndex_{ct} + \\
    & \beta_{3}coethnic_{iceta} \cdot DemocracyIndex_{ct}   + \delta_{t} + \gamma_{ce} +\eta_{a}  + \varepsilon_{iceta}
 \end{split}
 \end{equation}
 
 \begin{equation}\label{eq2}
 \begin{split}
-    Y_{iceta} &= \beta_{0} + \beta_{1}coethnic_{iceta} + \beta_{2} I_{(5\leq Polity IV \leq 10)} + \beta_{3} I_{(-5\leq Polity IV \leq 5)} + \\
+    Y_{iceta} &= \beta_{1}coethnic_{iceta} + \beta_{2} I_{(5\leq Polity IV \leq 10)} + \beta_{3} I_{(-5\leq Polity IV \leq 5)} + \\
     &\beta_{4} I_{(5\leq Polity IV \leq 10)} \cdot  coethnic_{iceta} + \beta_{5} I_{(-5\leq Polity IV \leq 5)} \cdot  coethnic_{iceta} + \\
     &\delta_{t} + \gamma_{ce} +\eta_{a}  + \varepsilon_{iceta}
     \end{split}
 \end{equation}
 
-Where $Y_{iceta}$ is the outcome of interest for person $i$ in the country $c$, ethnic group $e$, at period $t$\footnote{In the cases when the outcomes are education, electrification, wealth and access to water $t$ is the time of the survey. In the case when the outcome is infant survival, $t$ is the year of birth.} and with age at the time of the survey $a$. $coethnic_{iceta}$ is the dummy variable for co-ethnicity and is equal to one of the observation $i$ is the same ethnicity as the leader at time $t$ in the country $c$. $DemocracyIndex_{ct}$ is the index for democracy. Variables $I_{(5\leq Polity IV \leq 10)}$, and $I_{(-5\leq Polity IV \leq 5)}$ are indicator variables of democratic bins that respectively represent democracies, and anocracies. $I_{(-10\leq Polity IV \leq -5)}$ is the omitted dictatorship group. The variables $\delta_{t}, \gamma_{e}$ and $\eta_{a}$  are, respectively, vectors of time, country-specific ethnic group and age at the time of survey fixed effects.
+Where $Y_{iceta}$ is the outcome of interest for person $i$ in the country $c$, ethnic group $e$, at period $t$\footnote{In the cases when the outcomes are education, electrification, wealth and access to water $t$ is the time of the survey. In the case when the outcome is infant survival, $t$ is the year of birth.} and with age at the time of the survey $a$. $coethnic_{iceta}$ is the dummy variable for co-ethnicity and is equal to one of the observation $i$ is the same ethnicity as the leader at time $t$ in the country $c$. $DemocracyIndex_{ct}$ is the index for democracy. Variables $I_{(5\leq Polity IV \leq 10)}$, and $I_{(-5\leq Polity IV \leq 5)}$ are indicator variables of democratic bins that respectively represent democracies, and anocracies. $I_{(-10\leq Polity IV \leq -5)}$ is the omitted dictatorship group. The variables $\delta_{t}, \gamma_{ce}$ and $\eta_{a}$  are, respectively, vectors of time, country-specific ethnic group and age at the time of survey fixed effects.
 
 We are interested in variables $\beta_{3}$ from equation \ref{eq1} and $\beta_{5}$, and $\beta_{6}$ from \ref{eq2}. $\beta_{3}$ and $\beta_{5}$, and $\beta_{6}$ estimate the differences and relationships of ethnic favoritism in democratic/anocratic and autocratic countries on the outcomes of interest.
 
