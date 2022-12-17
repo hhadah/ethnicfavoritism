@@ -44,7 +44,7 @@ sumstat1 <-   tbl_summary(data = DHS,
                                       Urban,
                                       Literacy
                                       ),
-                          statistic = list(all_continuous() ~ "{mean} \n ({sd}) \n [{min}, {max}]",
+                          statistic = list(all_continuous() ~ "{mean} \n ({sd})",
                                            all_categorical() ~ "{p}"),
                           digits = all_categorical() ~ function(x) style_number(x, digits = 2),
                           label = list(
@@ -109,12 +109,12 @@ DHS <- DHS |>
   mutate(infant_survival = 1 - infant_mortality)
 # summary stat tables by
 # generation type
-sumstat1 <-   tbl_summary(data = DHS,
+sumstat2 <-   tbl_summary(data = DHS,
                           include = c(infant_survival,
                                       kidcurage, KidFemale,
                                       edyrtotal
                           ),
-                          statistic = list(all_continuous() ~ "{mean} ({sd})",
+                          statistic = list(all_continuous() ~ "{mean} \n ({sd})",
                                            all_categorical() ~ "{p}"),
                           digits = all_categorical() ~ function(x) style_number(x, digits = 2),
                           label = list(
@@ -124,7 +124,7 @@ sumstat1 <-   tbl_summary(data = DHS,
                           ),
                           missing = "no")
 
-sumstat1 %>% 
+sumstat2 %>% 
   as_kable_extra(format = "latex",
                  booktabs = TRUE,
                  linesep = "",
@@ -143,7 +143,7 @@ sumstat1 %>%
   # ) |> 
   save_kable(file.path(tables_wd,"sumtab-1.tex"))
 
-sumstat1 %>% 
+sumstat2 %>% 
   as_kable_extra(format = "latex",
                  booktabs = TRUE,
                  linesep = "",
@@ -168,10 +168,10 @@ sumstat1 %>%
 Polity <- read_dta(file.path(raw,"PolityHeadsofStates.dta"))
 # summary stat tables by
 # generation type
-sumstat1 <-   tbl_summary(data = Polity,
+sumstat3 <-   tbl_summary(data = Polity,
                           include = c(polity2
                           ),
-                          statistic = list(all_continuous() ~ "{mean} ({sd})",
+                          statistic = list(all_continuous() ~ "{mean} \n ({sd})",
                                            all_categorical() ~ "{p}"),
                           digits = all_categorical() ~ function(x) style_number(x, digits = 2),
                           label = list(
@@ -179,7 +179,7 @@ sumstat1 <-   tbl_summary(data = Polity,
                           ),
                           missing = "no")
 
-sumstat1 %>% 
+sumstat3 %>% 
   as_kable_extra(format = "latex",
                  booktabs = TRUE,
                  linesep = "",
@@ -198,7 +198,7 @@ sumstat1 %>%
   # ) |> 
   save_kable(file.path(tables_wd,"sumtab-2.tex"))
 
-sumstat1 %>% 
+sumstat3 %>% 
   as_kable_extra(format = "latex",
                  booktabs = TRUE,
                  linesep = "",
@@ -217,3 +217,33 @@ sumstat1 %>%
   # ) |> 
   save_kable(file.path(thesis_tabs,"sumtab-2.tex"))
 
+sumstat <- tbl_merge(tbls = list(sumstat1, sumstat2),
+                     tab_spanner = c("**Men and Women Recode**", "**Children Recode**"))
+
+sumstat %>% 
+  as_kable_extra(format = "latex",
+                 booktabs = TRUE,
+                 linesep = "",
+                 escape = F,
+                 caption = "Summary Statistics \\label{tabsum}") |> 
+  footnote(number = c("Data source is the Demographic and Health Surveys (DHS)."),
+           footnote_as_chunk = F, title_format = c("italic"),
+           escape = F, threeparttable = T
+  ) |> 
+  kable_styling(bootstrap_options = c("hover", "condensed", "responsive"), 
+                latex_options = "scale_down", full_width = FALSE, font_size = 7) |> 
+  save_kable(file.path(tables_wd,"tab01-sumtab.tex"))
+
+sumstat %>% 
+  as_kable_extra(format = "latex",
+                 booktabs = TRUE,
+                 linesep = "",
+                 escape = F,
+                 caption = "Summary Statistics \\label{tabsum}") |> 
+  footnote(number = c("Data source is the Demographic and Health Surveys (DHS)."),
+           footnote_as_chunk = F, title_format = c("italic"),
+           escape = F, threeparttable = T
+  ) |> 
+  kable_styling(bootstrap_options = c("hover", "condensed", "responsive"), 
+                latex_options = "scale_down", full_width = FALSE, font_size = 7) |> 
+  save_kable(file.path(thesis_tabs,"tab01-sumtab.tex"))
