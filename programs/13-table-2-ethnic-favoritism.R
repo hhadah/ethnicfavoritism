@@ -88,13 +88,14 @@ regression_tab <- modelsummary(reg1, fmt = 3,
   ) %>%
   footnote(number = c("\\\\footnotesize{In this table, I am reporting the estimates of equation \\\\ref{eqFR1}. 
                       I present the results of the effect of ethnic favoritism on primary school completions 
-                      in column 1, infant survival in column 2, wealth quintile in column 3, electrification in 
+                      in column 1, infant survival in column 2, top wealth quintile in column 3, electrification in 
                       column 4 and access to clean drinking water in column 4. Primary school completion is a 
                       dummy variable that is equal to one if a person completed primary school and zero otherwise. 
                       Infant survival is a dummy variable that is equal to one if an infant survived the first 12 
-                      months of life. Electrification is a dummy variable that is equal to one if a household 
-                      has electricity. Finally, access to clean drinking water is an ordinal variable that has 
-                      values from 1, worst water source, to 4.}",
+                      months of life. Wealth is a dummy variable that is equal to one if a person belongs to the top 
+                      wealth quintile. Electrification is a dummy variable that is equal to one if a household 
+                      has electricity. Finally, access to clean drinking water is a dummy variable that is equal to one if a household 
+                      has access to clean piped drinking water.}",
                       "\\\\footnotesize{Standard errors are clustered on country specific ethnic groups. All results include ethnic group, time and age fixed effects.}"),
            footnote_as_chunk = F, title_format = c("italic"),
            escape = F, threeparttable = T

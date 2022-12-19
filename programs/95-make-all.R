@@ -43,6 +43,14 @@ DHS_ElectrificationWater       <- read_dta(file.path(datasets,"DHS_Electrificati
 DHS_Wealth                     <- read_dta(file.path(datasets,"DHS_Wealth.dta")) |> 
   mutate(Democracy_dem_dic = (democracy_4 + democracy_3 + democracy_2 + democracy_1)/4)
 
+source(file.path(programs,"13-table-2-ethnic-favoritism.R"))            # table 2
+source(file.path(programs,"14-figure-2-ethnic-favoritism.R"))           # figure 2
+source(file.path(programs,"15-tab-3-dem-ethnic-favoritism.R"))          # table 3
+source(file.path(programs,"16-figure-3-dem-ethnic-favoritism.R"))       # figure 3
+source(file.path(programs,"17-figure-four-demdic-ethnic-favoritism.R")) # figure 4
+source(file.path(programs,"18-tab-4-dem-ethnic-favoritism.R"))          # table 5
+source(file.path(programs,"19-tab-5-dem-ethnic-favoritism.R"))          # table 6
+
 ### summary stats
 
 # Send Message

@@ -65,12 +65,13 @@ modelsummary(reg1, fmt = 3,
                       I present the results of the interaction between the coethnic variable 
                       and \\\\textit{Polity IV } groups on primary school completions in column 1, 
                       infant survival in column 2, wealth quintile in column 3, electrification in 
-                      column 4 and access to clean drinking water in column 4. Primary school completion 
-                      is a dummy variable that is equal to one if a person completed primary school and 
-                      zero otherwise. Infant survival is a dummy variable that is equal to one if an infant 
-                      survived the first 12 months of life. Electrification is a dummy variable that is equal 
-                      to one if a household has electricity. Finally, access to clean drinking water is an 
-                      ordinal variable that has values from 1, worst water source, to 4.}",
+                      column 4 and access to clean drinking water in column 4. Primary school completion is a 
+                      dummy variable that is equal to one if a person completed primary school and zero otherwise. 
+                      Infant survival is a dummy variable that is equal to one if an infant survived the first 12 
+                      months of life. Wealth is a dummy variable that is equal to one if a person belongs to the top 
+                      wealth quintile. Electrification is a dummy variable that is equal to one if a household 
+                      has electricity. Finally, access to clean drinking water is a dummy variable that is equal to one if a household 
+                      has access to clean piped drinking water.}",
                       "Democracies have a \\\\textit{Polity IV } $\\\\in [10, 5]$, anocracies have a \\\\textit{Polity IV } 
                       $\\\\in [4, -5]$ and autocracies, the omitted group, have a \\\\textit{Polity IV } $<-5$.",
                       "\\\\footnotesize{Standard errors are clustered on country specific ethnic groups. All 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.3)  17 DEC 2022 11:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.3)  18 DEC 2022 20:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1590,40 +1590,41 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
 (Font)              scaled to size 6.50995pt on input line 36.
 ) [9] [10]
-<1980.png, id=333, 844.8363pt x 597.432pt>
-File: 1980.png Graphic file (type png)
-<use 1980.png>
-Package pdftex.def Info: 1980.png  used on input line 184.
-(pdftex.def)             Requested size: 202.93097pt x 143.496pt.
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
-(Font)              scaled to size 7.43994pt on input line 185.
+(Font)              scaled to size 7.43994pt on input line 184.
 LaTeX Font Info:    Font shape `T1/fnc/b/sc' will be
-(Font)              scaled to size 7.43994pt on input line 185.
+(Font)              scaled to size 7.43994pt on input line 184.
 LaTeX Font Info:    Font shape `T1/fnc/m/sc' will be
-(Font)              scaled to size 7.43994pt on input line 185.
-<1985.png, id=335, 844.8363pt x 597.432pt>
-File: 1985.png Graphic file (type png)
-<use 1985.png>
-Package pdftex.def Info: 1985.png  used on input line 192.
-(pdftex.def)             Requested size: 202.93097pt x 143.496pt.
-<1990.png, id=336, 844.8363pt x 597.432pt>
-File: 1990.png Graphic file (type png)
-<use 1990.png>
-Package pdftex.def Info: 1990.png  used on input line 199.
-(pdftex.def)             Requested size: 202.93097pt x 143.496pt.
-<1995.png, id=337, 844.8363pt x 597.432pt>
-File: 1995.png Graphic file (type png)
-<use 1995.png>
-Package pdftex.def Info: 1995.png  used on input line 206.
-(pdftex.def)             Requested size: 202.93097pt x 143.496pt.
-<2000.png, id=338, 844.8363pt x 597.432pt>
-File: 2000.png Graphic file (type png)
-<use 2000.png>
-Package pdftex.def Info: 2000.png  used on input line 213.
-(pdftex.def)             Requested size: 211.38832pt x 149.48526pt.
+(Font)              scaled to size 7.43994pt on input line 184.
+<figure/1980.png, id=333, 2409.0pt x 1656.1875pt>
+File: figure/1980.png Graphic file (type png)
+<use figure/1980.png>
+Package pdftex.def Info: figure/1980.png  used on input line 185.
+(pdftex.def)             Requested size: 202.93097pt x 139.49786pt.
+<figure/1985.png, id=335, 2409.0pt x 1656.1875pt>
+File: figure/1985.png Graphic file (type png)
+<use figure/1985.png>
+Package pdftex.def Info: figure/1985.png  used on input line 193.
+(pdftex.def)             Requested size: 202.93097pt x 139.49786pt.
+<figure/1990.png, id=336, 2409.0pt x 1656.1875pt>
+File: figure/1990.png Graphic file (type png)
+<use figure/1990.png>
+Package pdftex.def Info: figure/1990.png  used on input line 200.
+(pdftex.def)             Requested size: 202.93097pt x 139.49786pt.
+<figure/1995.png, id=337, 2409.0pt x 1656.1875pt>
+File: figure/1995.png Graphic file (type png)
+<use figure/1995.png>
+Package pdftex.def Info: figure/1995.png  used on input line 207.
+(pdftex.def)             Requested size: 202.93097pt x 139.49786pt.
+<figure/2000.png, id=338, 2409.0pt x 1656.1875pt>
+File: figure/2000.png Graphic file (type png)
+<use figure/2000.png>
+Package pdftex.def Info: figure/2000.png  used on input line 214.
+(pdftex.def)             Requested size: 211.38832pt x 145.31029pt.
  [11]
-[12 <./1980.png> <./1985.png> <./1990.png> <./1995.png> <./2000.png>] [13]
-[14] [15] (./tables/tab02-ethnic_fav_tab_ethFE.tex) [16]
+[12 <./figure/1980.png> <./figure/1985.png> <./figure/1990.png> <./figure/1995.
+png> <./figure/2000.png>] [13] [14] [15]
+(./tables/tab02-ethnic_fav_tab_ethFE.tex) [16]
 <figure/coeth_ethFE.png, id=419, 3011.25pt x 1204.5pt>
 File: figure/coeth_ethFE.png Graphic file (type png)
 <use figure/coeth_ethFE.png>
@@ -1633,11 +1634,8 @@ Package pdftex.def Info: figure/coeth_ethFE.png  used on input line 285.
 (./tables/tab03-ethnic_demfav_tab_ethFE.tex
 LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
 (Font)              scaled to size 9.29993pt on input line 37.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [18 <./figure/coeth_ethFE.png>] [19]
+ [18 <./figure/coeth_ethFE.png>])
+[19]
 <figure/coeth_dem_ethFE.png, id=459, 3613.5pt x 1204.5pt>
 File: figure/coeth_dem_ethFE.png Graphic file (type png)
 <use figure/coeth_dem_ethFE.png>
@@ -1649,8 +1647,8 @@ File: figure/coeth_demdic_ctFE.png Graphic file (type png)
 <use figure/coeth_demdic_ctFE.png>
 Package pdftex.def Info: figure/coeth_demdic_ctFE.png  used on input line 382.
 (pdftex.def)             Requested size: 422.77664pt x 169.1067pt.
-
-[21] (./tables/tab04-ethnic_demfav_cont.tex
+ [21]
+(./tables/tab04-ethnic_demfav_cont.tex
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1666,7 +1664,7 @@ Package rerunfilecheck Info: File `HussainHadahEthFav.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  35592 strings out of 478287
- 711246 string characters out of 5846751
+ 711456 string characters out of 5846751
  962124 words of memory out of 5000000
  52943 multiletter control sequences out of 15000+600000
  579216 words of font info for 190 fonts, out of 8000000 for 9000
@@ -1681,7 +1679,7 @@ mf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></usr/local/texlive/2021/texmf-dis
 t/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts
 /type1/urw/ncntrsbk/uncri8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1
 /urw/times/utmr8a.pfb>
-Output written on HussainHadahEthFav.pdf (34 pages, 2851062 bytes).
+Output written on HussainHadahEthFav.pdf (34 pages, 849933 bytes).
 PDF statistics:
  657 PDF objects out of 1000 (max. 8388607)
  583 compressed objects within 6 object streams
