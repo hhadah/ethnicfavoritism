@@ -25,7 +25,8 @@ pacman::p_load(tictoc, parallel, pbapply, future,
                finalfit, ggtext, glue, scales, 
                gganimate, ggrepel, MetBrewer, fs,
                marginaleffects, gghighlight, ggview,
-               camcorder, rnaturalearth, rnaturalearthdata)
+               camcorder, rnaturalearth, rnaturalearthdata,
+               latex2exp)
 options("RStata.StataPath" = "/Applications/Stata/StataSE.app/Contents/MacOS/stata-se")
 options("RStata.StataVersion" = 17)
             

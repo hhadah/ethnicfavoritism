@@ -87,7 +87,7 @@ p1 / p2
 ggarrange(p1, p2, nrow = 1)
 ggsave(paste0(figures_wd,"/coeth_dem_ethFE.png"), width = 12, height = 4, units = "in")
 ggsave(paste0(thesis_plots,"/coeth_dem_ethFE.png"), width = 12, height = 4, units = "in")
-ggsave(paste0("/Users/hhadah/Documents/GiT/website/content/workingpaper/EthnicFav","/featured.png"), width = 12, height = 4, units = "in", scaling = 0.5)
+# ggsave(paste0("/Users/hhadah/Documents/GiT/website/content/workingpaper/EthnicFav","/featured"), width = 10* 1/2, height = 10 * 9 / 16 * 1/2, units = "cm", scaling = 0.5)
 
 
 
