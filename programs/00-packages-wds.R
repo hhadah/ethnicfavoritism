@@ -24,7 +24,8 @@ pacman::p_load(tictoc, parallel, pbapply, future,
                maps, sf, multcomp, cdlTools,
                finalfit, ggtext, glue, scales, 
                gganimate, ggrepel, MetBrewer, fs,
-               marginaleffects, gghighlight, ggview)
+               marginaleffects, gghighlight, ggview,
+               camcorder, rnaturalearth, rnaturalearthdata)
 options("RStata.StataPath" = "/Applications/Stata/StataSE.app/Contents/MacOS/stata-se")
 options("RStata.StataVersion" = 17)
             
@@ -38,7 +39,15 @@ font_add_google("Fira Sans", "firasans")
 font_add_google("Fira Code", "firasans")
 
 showtext_auto()
-
+showtext_opts(dpi = 300)
+camcorder::gg_record(
+  dir = figures_wd,
+  device = "png",
+  width = 10,
+  height = 10 + 9 / 16, #16:9 ratio
+  units = 'cm',
+  dpi = 300
+)
 theme_customs <- function() {
   theme_minimal(base_family = "IBM Plex Sans Condensed") +
     theme(panel.grid.minor = element_blank(),
@@ -47,7 +56,8 @@ theme_customs <- function() {
           axis.title = element_text(face = "bold"),
           strip.text = element_text(face = "bold"),
           strip.background = element_rect(fill = "grey80", color = NA),
-          legend.title = element_text(face = "bold"))
+          legend.title = element_text(face = "bold", size = rel(2)),
+          legend.text = element_text(size = rel(1.5)))
 }
 
 theme_customs_map <- function() {
@@ -62,7 +72,8 @@ theme_customs_map <- function() {
           axis.text = element_blank(),
           strip.text = element_blank(),
           strip.background = element_blank(),
-          legend.title = element_text(face = "bold"))
+          legend.title = element_text(face = "bold", size = rel(1.5)),
+          legend.text = element_text(size = rel(1.2)))
 }
 # Make labels use IBM Plex Sans by default
 update_geom_defaults("label", 

@@ -51,7 +51,8 @@ gm <- tibble::tribble(
 )
 
 modelsummary(reg1, fmt = 3, 
-             add_rows = mean_row,
+             statistic = 'conf.int', 
+             conf_level = .95,
              coef_map = cm,
              gof_map = gm,
              escape = F,

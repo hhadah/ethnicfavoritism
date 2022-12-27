@@ -28,10 +28,12 @@ DHS <- read_dta(file.path(raw,"DHS_MenWomen.dta")) |>
          edyrtotal           = case_when(edyrtotal < 96 ~ edyrtotal),
          currwork            = case_when(currwork <= 12 &
                                          currwork >= 10 ~ 1,
-                                         currwork == 0  ~ 0))
+                                         currwork == 0  ~ 0),
+         
+         cheb                = ifelse(cheb == 99, NA, cheb))
 
-# summary stat tables by
-# generation type
+# summary stat tables 
+
 sumstat1 <-   tbl_summary(data = DHS,
                           include = c(age,
                                       cheb,
@@ -44,7 +46,7 @@ sumstat1 <-   tbl_summary(data = DHS,
                                       Urban,
                                       Literacy
                                       ),
-                          statistic = list(all_continuous() ~ "{mean} \n ({sd})",
+                          statistic = list(all_continuous() ~ "{mean} \n ({sd}) ",
                                            all_categorical() ~ "{p}"),
                           digits = all_categorical() ~ function(x) style_number(x, digits = 2),
                           label = list(
@@ -59,7 +61,8 @@ sumstat1 <-   tbl_summary(data = DHS,
                             Urban ~ "Urban",
                             Literacy ~ "Literacy"
                             ),
-                          missing = "no")
+                          missing = "no") |> 
+  modify_footnote(update = everything() ~ NA)
 
 sumstat1 %>% 
   as_kable_extra(format = "latex",
@@ -114,7 +117,7 @@ sumstat2 <-   tbl_summary(data = DHS,
                                       kidcurage, KidFemale,
                                       edyrtotal
                           ),
-                          statistic = list(all_continuous() ~ "{mean} \n ({sd})",
+                          statistic = list(all_continuous() ~ "{mean} \n ({sd}) ",
                                            all_categorical() ~ "{p}"),
                           digits = all_categorical() ~ function(x) style_number(x, digits = 2),
                           label = list(
@@ -122,7 +125,8 @@ sumstat2 <-   tbl_summary(data = DHS,
                             KidFemale       ~ "Female Children",
                             edyrtotal       ~ "Children’s total years of education"
                           ),
-                          missing = "no")
+                          missing = "no") |> 
+  modify_footnote(update = everything() ~ NA)
 
 sumstat2 %>% 
   as_kable_extra(format = "latex",
@@ -171,13 +175,14 @@ Polity <- read_dta(file.path(raw,"PolityHeadsofStates.dta"))
 sumstat3 <-   tbl_summary(data = Polity,
                           include = c(polity2
                           ),
-                          statistic = list(all_continuous() ~ "{mean} \n ({sd})",
+                          statistic = list(all_continuous() ~ "{mean} \n ({sd}) ",
                                            all_categorical() ~ "{p}"),
                           digits = all_categorical() ~ function(x) style_number(x, digits = 2),
                           label = list(
                             polity2 ~ "Polity IV"
                           ),
-                          missing = "no")
+                          missing = "no") |> 
+  modify_footnote(update = everything() ~ NA)
 
 sumstat3 %>% 
   as_kable_extra(format = "latex",
@@ -226,9 +231,11 @@ sumstat %>%
                  linesep = "",
                  escape = F,
                  caption = "Summary Statistics \\label{tabsum}") |> 
-  footnote(number = c("Data source is the Demographic and Health Surveys (DHS)."),
-           footnote_as_chunk = F, title_format = c("italic"),
-           escape = F, threeparttable = T
+  footnote(
+    number = c("Mean (Standard Deviation); \\\\%."),
+    symbol = c("Data source is the Demographic and Health Surveys's (DHS) men, women, and children recodes."),
+    footnote_as_chunk = F, title_format = c("italic"),
+    escape = F, threeparttable = T
   ) |> 
   kable_styling(bootstrap_options = c("hover", "condensed", "responsive"), 
                 latex_options = "scale_down", full_width = FALSE, font_size = 7) |> 
@@ -240,9 +247,11 @@ sumstat %>%
                  linesep = "",
                  escape = F,
                  caption = "Summary Statistics \\label{tabsum}") |> 
-  footnote(number = c("Data source is the Demographic and Health Surveys (DHS)."),
-           footnote_as_chunk = F, title_format = c("italic"),
-           escape = F, threeparttable = T
+  footnote(
+    number = c("Mean (Standard Deviation); \\\\%."),
+    symbol = c("Data source is the Demographic and Health Surveys's (DHS) men, women, and children recodes."),
+    footnote_as_chunk = T, title_format = c("italic"),
+    escape = F, threeparttable = T
   ) |> 
   kable_styling(bootstrap_options = c("hover", "condensed", "responsive"), 
                 latex_options = "scale_down", full_width = FALSE, font_size = 7) |> 
