@@ -1,4 +1,4 @@
-# \# Democracy and Ethnic Favoritism: Evidence from Africa
+# Democracy and Ethnic Favoritism: Evidence from Africa
 
 Data and code for "Democracy and Ethnic Favoritism: Evidence from Africa"
 
@@ -12,7 +12,7 @@ Use the following citation to cite the data:
 
 Elizabeth Heger Boyle, Miriam King and Matthew Sobek. IPUMS-Demographic and Health Surveys: Version 9 [dataset]. IPUMS and ICF, 2022. https://doi.org/10.18128/D080.V9
 
-I use the women, men, and children recodes for this project. The raw data are available in the \`data/raw\` folder.
+I use the women, men, and children recodes for this project. The raw data are available in the `data/raw` folder.
 
 ### Democracy Data
 
@@ -26,8 +26,8 @@ Ethnicity data are from Fearon et al. (2007).
 
 To run the code:
 
-1. Change the \`mdir\` variable to your directory
-2. Running the R script \`95-make-all.R\` will create all the data, tables, and figures.
+1. Change the `mdir` variable to your directory
+2. Running the R script `95-make-all.R` will create all the data, tables, and figures.
 Democracy and Ethnic Favoritism: Evidence from Africa
 
 Data and code for "Democracy and Ethnic Favoritism: Evidence from Africa"
