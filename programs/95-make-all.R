@@ -2,20 +2,33 @@
 # Master script
 #######################################################################
 
-## Clear out existing environment
+## Clear out existing environment.
 gc()
 rm(list = ls()) 
 ## Set master directory where all sub-directories are located
 
 ### GiT directories
-mdir <- "~/Documents/GiT/ethnicfavoritism"
+# set the main directory
+mdir <- "~/Documents/Git/ethnicfavoritism"
+
+# set the directory for the datasets
 datasets <- paste0(mdir,"/data/datasets")
+
+# set the directory for the raw data
 raw <- paste0(mdir,"/data/raw")
+
+# set the directory for the tables
 tables_wd <- paste0(mdir,"/output/tables")
+
+# set the working directory for figures
 figures_wd <- paste0(mdir,"/output/figures")
+# set the working directory for programs
 programs <- paste0(mdir,"/programs")
+# set the working directory for tables
 thesis_tabs <- paste0(mdir,"/my_paper/tables")
+# set the working directory for plots
 thesis_plots <- paste0(mdir,"/my_paper/figure")
+
 
 ### run do files and scripts
 

@@ -1741,10 +1741,6 @@ INPUT ./figure/2000.png
 INPUT figure/2000.png
 INPUT ./figure/2000.png
 INPUT ./figure/2000.png
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/ncntrsbk/pncbc8t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncb8r.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/ncntrsbk/pncrc8t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncr8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/public/fouriernc/fncmii.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
@@ -1753,6 +1749,10 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncri8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/public/fouriernc/fncsy.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncr8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/ncntrsbk/pncbc8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncb8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/ncntrsbk/pncrc8t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/ncntrsbk/pncr8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/public/fouriernc/fncmii.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
