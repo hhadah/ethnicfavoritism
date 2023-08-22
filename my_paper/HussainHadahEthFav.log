@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.3)  4 JAN 2023 10:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.2.3)  22 AUG 2023 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1436,146 +1436,146 @@ nslations-basic-dictionary')
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 78.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 19.28804pt on input line 87.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 87
+(Font)              scaled to size 19.28804pt on input line 88.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 88
 .
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 13.39188pt on input line 87.
+(Font)              scaled to size 13.39188pt on input line 88.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 9.29993pt on input line 87.
+(Font)              scaled to size 9.29993pt on input line 88.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 19.08076pt on input line 87.
+(Font)              scaled to size 19.08076pt on input line 88.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 13.24796pt on input line 87.
+(Font)              scaled to size 13.24796pt on input line 88.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 87.
+(Font)              scaled to size 9.19998pt on input line 88.
 LaTeX Font Info:    Trying to load font information for FML+fncm on input line 
-87.
+88.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/fouriernc/fmlfncm.fd
 File: fmlfncm.fd 2005/12/20 Fontinst v1.928 font definitions for FML/fncm.
 )
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 19.08076pt on input line 87.
+(Font)              scaled to size 19.08076pt on input line 88.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 13.24796pt on input line 87.
+(Font)              scaled to size 13.24796pt on input line 88.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 87.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
+(Font)              scaled to size 9.19998pt on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
 
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 87
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 88
 .
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for TS1+fnc on input line 8
-7.
+8.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/fouriernc/ts1fnc.fd
 File: ts1fnc.fd 2005/12/13 font definitions for TS1/fnc.
 )
 LaTeX Font Info:    Font shape `TS1/fnc/m/n' will be
-(Font)              scaled to size 13.39188pt on input line 87.
+(Font)              scaled to size 13.39188pt on input line 88.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 7.43994pt on input line 87.
+(Font)              scaled to size 7.43994pt on input line 88.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 87.
+(Font)              scaled to size 7.35999pt on input line 88.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 87.
-LaTeX Font Info:    Trying to load font information for T1+pbk on input line 87
+(Font)              scaled to size 7.35999pt on input line 88.
+LaTeX Font Info:    Trying to load font information for T1+pbk on input line 88
 .
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1pbk.fd
 File: t1pbk.fd 2001/06/04 font definitions for T1/pbk.
 )
 LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <14.4> not available
-(Font)              Font shape `T1/pbk/l/n' tried instead on input line 87.
+(Font)              Font shape `T1/pbk/l/n' tried instead on input line 88.
 LaTeX Font Info:    Font shape `T1/pbk/m/sc' in size <14.4> not available
-(Font)              Font shape `T1/pbk/l/sc' tried instead on input line 87.
+(Font)              Font shape `T1/pbk/l/sc' tried instead on input line 88.
 LaTeX Font Info:    Font shape `TS1/fnc/m/n' will be
-(Font)              scaled to size 9.29993pt on input line 87.
+(Font)              scaled to size 9.29993pt on input line 88.
 LaTeX Font Info:    Font shape `T1/pbk/m/n' in size <12> not available
-(Font)              Font shape `T1/pbk/l/n' tried instead on input line 87.
+(Font)              Font shape `T1/pbk/l/n' tried instead on input line 88.
 LaTeX Font Info:    Font shape `T1/pbk/m/sc' in size <12> not available
-(Font)              Font shape `T1/pbk/l/sc' tried instead on input line 87.
+(Font)              Font shape `T1/pbk/l/sc' tried instead on input line 88.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 7.06795pt on input line 87.
+(Font)              scaled to size 7.06795pt on input line 88.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 5.57996pt on input line 87.
+(Font)              scaled to size 5.57996pt on input line 88.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 87.
+(Font)              scaled to size 6.99199pt on input line 88.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 87.
+(Font)              scaled to size 5.51999pt on input line 88.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 87.
+(Font)              scaled to size 6.99199pt on input line 88.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 87.
+(Font)              scaled to size 5.51999pt on input line 88.
 LaTeX Font Info:    Font shape `TS1/fnc/m/n' will be
-(Font)              scaled to size 7.06795pt on input line 87.
+(Font)              scaled to size 7.06795pt on input line 88.
 LaTeX Font Info:    Font shape `T1/fnc/m/sc' will be
-(Font)              scaled to size 9.29993pt on input line 89.
+(Font)              scaled to size 9.29993pt on input line 90.
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
-(Font)              scaled to size 11.15991pt on input line 92.
+(Font)              scaled to size 11.15991pt on input line 93.
 LaTeX Font Info:    Font shape `T1/fnc/b/sc' will be
-(Font)              scaled to size 11.15991pt on input line 92.
+(Font)              scaled to size 11.15991pt on input line 93.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 10.18341pt on input line 92.
+(Font)              scaled to size 10.18341pt on input line 93.
 LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
-(Font)              scaled to size 10.18341pt on input line 95.
+(Font)              scaled to size 10.18341pt on input line 96.
  [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 16.07027pt on input line 103.
+(Font)              scaled to size 16.07027pt on input line 104.
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
-(Font)              scaled to size 16.07027pt on input line 103.
+(Font)              scaled to size 16.07027pt on input line 104.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.109 W
+l.110 W
        hat causes some countries to distribute resources evenly among their ...
 [1
 
 ]
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 8.36993pt on input line 109.
+(Font)              scaled to size 8.36993pt on input line 110.
 LaTeX Font Info:    Font shape `T1/fnc/m/n' will be
-(Font)              scaled to size 6.50995pt on input line 109.
+(Font)              scaled to size 6.50995pt on input line 110.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 109.
+(Font)              scaled to size 11.03998pt on input line 110.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 109.
+(Font)              scaled to size 8.27998pt on input line 110.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 109.
+(Font)              scaled to size 6.43999pt on input line 110.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 109.
+(Font)              scaled to size 11.03998pt on input line 110.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 109.
+(Font)              scaled to size 8.27998pt on input line 110.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.43999pt on input line 109.
+(Font)              scaled to size 6.43999pt on input line 110.
 LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
-(Font)              scaled to size 11.15991pt on input line 113.
+(Font)              scaled to size 11.15991pt on input line 114.
  [2] [3] [4] [5]
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
-(Font)              scaled to size 13.39188pt on input line 137.
+(Font)              scaled to size 13.39188pt on input line 138.
 LaTeX Font Info:    Font shape `T1/fnc/b/it' will be
-(Font)              scaled to size 11.15991pt on input line 137.
+(Font)              scaled to size 11.15991pt on input line 138.
  [6] [7] [8] (./tables/tab01-sumtab.tex
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
 (Font)              scaled to size 9.29993pt on input line 3.
@@ -1591,35 +1591,35 @@ LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
 (Font)              scaled to size 6.50995pt on input line 34.
 ) [9] [10]
 LaTeX Font Info:    Font shape `T1/fnc/b/n' will be
-(Font)              scaled to size 7.43994pt on input line 184.
+(Font)              scaled to size 7.43994pt on input line 185.
 LaTeX Font Info:    Font shape `T1/fnc/b/sc' will be
-(Font)              scaled to size 7.43994pt on input line 184.
+(Font)              scaled to size 7.43994pt on input line 185.
 LaTeX Font Info:    Font shape `T1/fnc/m/sc' will be
-(Font)              scaled to size 7.43994pt on input line 184.
+(Font)              scaled to size 7.43994pt on input line 185.
 <figure/1980.png, id=333, 4818.0pt x 3312.375pt>
 File: figure/1980.png Graphic file (type png)
 <use figure/1980.png>
-Package pdftex.def Info: figure/1980.png  used on input line 185.
+Package pdftex.def Info: figure/1980.png  used on input line 186.
 (pdftex.def)             Requested size: 202.93097pt x 139.49786pt.
 <figure/1985.png, id=335, 4818.0pt x 3312.375pt>
 File: figure/1985.png Graphic file (type png)
 <use figure/1985.png>
-Package pdftex.def Info: figure/1985.png  used on input line 193.
+Package pdftex.def Info: figure/1985.png  used on input line 194.
 (pdftex.def)             Requested size: 202.93097pt x 139.49786pt.
 <figure/1990.png, id=336, 4818.0pt x 3312.375pt>
 File: figure/1990.png Graphic file (type png)
 <use figure/1990.png>
-Package pdftex.def Info: figure/1990.png  used on input line 200.
+Package pdftex.def Info: figure/1990.png  used on input line 201.
 (pdftex.def)             Requested size: 202.93097pt x 139.49786pt.
 <figure/1995.png, id=337, 4818.0pt x 3312.375pt>
 File: figure/1995.png Graphic file (type png)
 <use figure/1995.png>
-Package pdftex.def Info: figure/1995.png  used on input line 207.
+Package pdftex.def Info: figure/1995.png  used on input line 208.
 (pdftex.def)             Requested size: 202.93097pt x 139.49786pt.
 <figure/2000.png, id=338, 4818.0pt x 3312.375pt>
 File: figure/2000.png Graphic file (type png)
 <use figure/2000.png>
-Package pdftex.def Info: figure/2000.png  used on input line 214.
+Package pdftex.def Info: figure/2000.png  used on input line 215.
 (pdftex.def)             Requested size: 211.38832pt x 145.31029pt.
 
 Overfull \vbox (1.66795pt too high) has occurred while \output is active []
@@ -1631,7 +1631,7 @@ Overfull \vbox (1.66795pt too high) has occurred while \output is active []
 <figure/coeth_ethFE.png, id=416, 3011.25pt x 1204.5pt>
 File: figure/coeth_ethFE.png Graphic file (type png)
 <use figure/coeth_ethFE.png>
-Package pdftex.def Info: figure/coeth_ethFE.png  used on input line 285.
+Package pdftex.def Info: figure/coeth_ethFE.png  used on input line 286.
 (pdftex.def)             Requested size: 422.77664pt x 169.1067pt.
  [17 <./figure/coeth_ethFE.png>]
 (./tables/tab03-ethnic_demfav_tab_ethFE.tex
@@ -1641,13 +1641,13 @@ LaTeX Font Info:    Font shape `T1/fnc/m/it' will be
 <figure/coeth_dem_ethFE.png, id=440, 3613.5pt x 1204.5pt>
 File: figure/coeth_dem_ethFE.png Graphic file (type png)
 <use figure/coeth_dem_ethFE.png>
-Package pdftex.def Info: figure/coeth_dem_ethFE.png  used on input line 368.
+Package pdftex.def Info: figure/coeth_dem_ethFE.png  used on input line 369.
 (pdftex.def)             Requested size: 422.77664pt x 140.91307pt.
  [19]
 <figure/coeth_demdic_ctFE.png, id=446, 3011.25pt x 1204.5pt>
 File: figure/coeth_demdic_ctFE.png Graphic file (type png)
 <use figure/coeth_demdic_ctFE.png>
-Package pdftex.def Info: figure/coeth_demdic_ctFE.png  used on input line 382.
+Package pdftex.def Info: figure/coeth_demdic_ctFE.png  used on input line 383.
 (pdftex.def)             Requested size: 422.77664pt x 169.1067pt.
  [20 <./figure/coeth_dem_ethFE.png>] [21 <./figure/coeth_demdic_ctFE.png>]
 (./tables/tab04-ethnic_demfav_cont.tex) (./tables/tab05-ethnic_demdic_ctFE.tex)
@@ -1673,7 +1673,7 @@ mf-dist/fonts/type1/urw/ncntrsbk/uncbi8a.pfb></usr/local/texlive/2021/texmf-dis
 t/fonts/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts
 /type1/urw/ncntrsbk/uncri8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1
 /urw/times/utmr8a.pfb>
-Output written on HussainHadahEthFav.pdf (33 pages, 2642102 bytes).
+Output written on HussainHadahEthFav.pdf (33 pages, 2641713 bytes).
 PDF statistics:
  639 PDF objects out of 1000 (max. 8388607)
  566 compressed objects within 6 object streams

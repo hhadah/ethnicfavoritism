@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex HussainHadahEthFav"] 1672851216 "HussainHadahEthFav.aux" "HussainHadahEthFav.bbl" "HussainHadahEthFav" 1672851224
+["bibtex HussainHadahEthFav"] 1692747921 "HussainHadahEthFav.aux" "HussainHadahEthFav.bbl" "HussainHadahEthFav" 1692747935
   "/Users/hhadah/Library/texmf/bibtex/bst/chicago-bib.bst" 1616018038 37366 45205f43c7252fc042dda3578dbe7344 ""
-  "HussainHadahEthFav.aux" 1672851224 17902 fe1896fe6a7ebeb7b745a0b7212c74cc "pdflatex"
+  "HussainHadahEthFav.aux" 1692747935 17902 fe1896fe6a7ebeb7b745a0b7212c74cc "pdflatex"
   "ethnicfav.bib" 1636829692 20580 777b83f88f0e9b09e15609e4672aef8a ""
   (generated)
   "HussainHadahEthFav.bbl"
   "HussainHadahEthFav.blg"
-["pdflatex"] 1672851216 "HussainHadahEthFav.tex" "HussainHadahEthFav.pdf" "HussainHadahEthFav" 1672851224
+["pdflatex"] 1692747928 "HussainHadahEthFav.tex" "HussainHadahEthFav.pdf" "HussainHadahEthFav" 1692747935
   "/Users/hhadah/Library/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643922251 2796795 9b37e65f83922863af74fc947fc5804c ""
   "/Users/hhadah/Library/texmf/tex/latex/multicol.sty" 1084240224 25928 526edd03c609ff2cdc4805a41441008e ""
   "/Users/hhadah/Library/texmf/tex/latex/setspace.sty" 1130857036 22518 969fcbccb9feb6c080f52825bb5fe1e1 ""
@@ -268,10 +268,10 @@
   "/usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf" 1621028613 40042 fe981136cbb5f3715ab1b0e46e3d3892 ""
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643922253 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "HussainHadahEthFav.aux" 1672851224 17902 fe1896fe6a7ebeb7b745a0b7212c74cc "pdflatex"
-  "HussainHadahEthFav.bbl" 1672851216 17276 ec6dc14af33522da729634c32377c3c7 "bibtex HussainHadahEthFav"
-  "HussainHadahEthFav.out" 1672851224 2922 fc4c6ce0e8706709b1443421ddc587b1 "pdflatex"
-  "HussainHadahEthFav.tex" 1672851207 72828 a6bab9aa049d97cdcb4e74650708759b ""
+  "HussainHadahEthFav.aux" 1692747935 17902 fe1896fe6a7ebeb7b745a0b7212c74cc "pdflatex"
+  "HussainHadahEthFav.bbl" 1692747921 17276 ec6dc14af33522da729634c32377c3c7 "bibtex HussainHadahEthFav"
+  "HussainHadahEthFav.out" 1692747935 2922 fc4c6ce0e8706709b1443421ddc587b1 "pdflatex"
+  "HussainHadahEthFav.tex" 1692747925 72796 7497daac7eb638e45ff0fe84eb31c5fd ""
   "figure/1980.png" 1672156823 794041 621a23ec19dae7a32d55529e836277c3 ""
   "figure/1985.png" 1672156825 785802 31e877daa3fcfb743a00c6582524e42d ""
   "figure/1990.png" 1672156827 794316 9e226cb53096b9573e11aabc8592bd84 ""
