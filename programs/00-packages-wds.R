@@ -26,9 +26,29 @@ pacman::p_load(tictoc, parallel, pbapply, future,
                gganimate, ggrepel, MetBrewer, fs,
                marginaleffects, gghighlight, ggview,
                camcorder, rnaturalearth, rnaturalearthdata,
-               latex2exp)
+               latex2exp, etwfe, ggplot2, ggthemes, remotes,
+               BMisc, did, gridExtra, knitr, bacondecomp, TwoWayFEWeights,
+               plm
+               )
 options("RStata.StataPath" = "/Applications/Stata/StataSE.app/Contents/MacOS/stata-se")
 options("RStata.StataVersion" = 17)
+
+#--------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
+# ggplot2 theme
+# Set ggplot theme
+theme_set(
+  #theme_clean() + 
+  theme_classic() +
+    theme(
+      panel.background = element_rect(fill = "transparent"), # bg of the panel
+      plot.background = element_rect(fill = "white", color = NA), # bg of the plot
+      legend.background = element_rect(color = "white"),
+      legend.box.background = element_rect(fill = "transparent"), # get rid of legend panel bg
+      panel.grid.major = element_blank(), 
+      panel.grid.minor = element_blank(),
+      panel.spacing = unit(10, "lines"))
+)
             
 # devtools::install_github("thomasp85/patchwork")
 # devtools::install_github("ajdamico/lodown")

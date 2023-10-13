@@ -48,13 +48,17 @@ stata(file.path(programs,"06-summarystats-skin-iat.R")) # summary stats
 
 # open data
 DHS_PrimSchl                   <- read_dta(file.path(datasets,"DHS_PrimSchl.dta")) |> 
-  mutate(Democracy_dem_dic = (democracy_13 + democracy_12 + democracy_11 + democracy_10 + democracy_9 + democracy_8 + democracy_7)/7)
+  mutate(Democracy_dem_dic = (democracy_13 + democracy_12 + democracy_11 + democracy_10 + democracy_9 + democracy_8 + democracy_7)/7,
+  first.treat = ifelse(any(coethnic == 1), min(birth_year[coethnic == 1]), Inf))
 DHS_Infantdata_polity_coethnic <- read_dta(file.path(datasets,"DHS_Infantdata_polity_coethnic.dta")) |> 
-  mutate(Democracy_dem_dic = (democracy))
+  mutate(Democracy_dem_dic = (democracy),
+  first.treat = ifelse(any(coethnic == 1), min(birth_year[coethnic == 1]), Inf))
 DHS_ElectrificationWater       <- read_dta(file.path(datasets,"DHS_ElectrificationWater.dta")) |> 
-  mutate(PipedWater = ifelse(AccessToWater == 4, 1, 0))
+  mutate(PipedWater = ifelse(AccessToWater == 4, 1, 0),
+  first.treat = ifelse(any(coethnic == 1), min(birth_year[coethnic == 1]), Inf))
 DHS_Wealth                     <- read_dta(file.path(datasets,"DHS_Wealth.dta")) |> 
-  mutate(Democracy_dem_dic = (democracy_4 + democracy_3 + democracy_2 + democracy_1)/4)
+  mutate(Democracy_dem_dic = (democracy_4 + democracy_3 + democracy_2 + democracy_1)/4,
+  first.treat = ifelse(any(coethnic == 1), min(birth_year[coethnic == 1]), Inf))
 
 source(file.path(programs,"13-table-2-ethnic-favoritism.R"))            # table 2
 source(file.path(programs,"14-figure-2-ethnic-favoritism.R"))           # figure 2
@@ -63,6 +67,15 @@ source(file.path(programs,"16-figure-3-dem-ethnic-favoritism.R"))       # figure
 source(file.path(programs,"17-figure-four-demdic-ethnic-favoritism.R")) # figure 4
 source(file.path(programs,"18-tab-4-dem-ethnic-favoritism.R"))          # table 5
 source(file.path(programs,"19-tab-5-dem-ethnic-favoritism.R"))          # table 6
+source(file.path(programs,"20-map-polity.R"))                           # 
+source(file.path(programs,"21-tab-6-by-democ-anoc-autoc.R"))            # 
+source(file.path(programs,"22-prep-data-staggared.R"))                  # 
+source(file.path(programs,"23-dCDH.R"))                                 # 
+source(file.path(programs,"24-prim-school-stag.R"))                     # 
+source(file.path(programs,"25-infant-survival-stag.R"))                 # 
+source(file.path(programs,"26-Electrification-stag.R"))                 # 
+source(file.path(programs,"27-water-stag.R"))                           # 
+source(file.path(programs,"28-wealth-stag.R"))                          # 
 
 ### summary stats
 

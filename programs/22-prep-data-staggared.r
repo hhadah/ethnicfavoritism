@@ -55,7 +55,7 @@ DHS_Infantdata_polity_coethnic   <- DHS_Infantdata_polity_coethnic  |>
               Autocracy           = mean(Autocracy,na.rm = TRUE),
               Polity              = mean(Polity,na.rm = TRUE),
               Democracy_dem_dic   = mean(Democracy_dem_dic, na.rm = TRUE),
-              first.treat = first(first.treat) # Grab the first value of first.treat for each group after grouping
+              first.treat = first(first.treat, na.rm = TRUE) # Grab the first value of first.treat for each group after grouping
             ) %>%
   mutate(rel_year = birth_year - first.treat)
 write_csv(DHS_Infantdata_polity_coethnic, file.path(datasets,"DHS_Infantdata_polity_coethnic.csv"))

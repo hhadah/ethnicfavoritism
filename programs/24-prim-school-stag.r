@@ -3,57 +3,10 @@
 #      Effect of Coethnicity on primary school completion
 #      Codes based on Callaway and Sant'Anna (2021)
 #---------------------------------------------------
-#-----------------------------------------------------------------------------
-# Load packages
-#-----------------------------------------------------------------------------
-# Libraries
-# Load libraries
-library(ggplot2)
-library(here)
-library(ggthemes)
-library(patchwork)
-library(ggtext)
-library(foreign)
-library(tidyverse)
-library(dplyr)
-## Load external packages
-library(foreign)
-library(remotes)
-#install_github("bcallaway11/BMisc")
-library(BMisc)
-library(did)
-library(gridExtra)
-library(knitr)
-library(ggpubr)
-
-
-library(bacondecomp) 
-library(TwoWayFEWeights)
-library(fixest)
-library(glue)
-library(plm)
 #---------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------
 # Load data
 DHS_PrimSchl  <- read_csv(file.path(datasets,"DHS_PrimSchl.csv"))
-
-#--------------------------------------------------------------------------------------------
-#--------------------------------------------------------------------------------------------
-# ggplot2 theme
-# Set ggplot theme
-theme_set(
-  #theme_clean() + 
-  theme_classic() +
-    theme(
-      panel.background = element_rect(fill = "transparent"), # bg of the panel
-      plot.background = element_rect(fill = "white", color = NA), # bg of the plot
-      legend.background = element_rect(color = "white"),
-      legend.box.background = element_rect(fill = "transparent"), # get rid of legend panel bg
-      panel.grid.major = element_blank(), 
-      panel.grid.minor = element_blank(),
-      panel.spacing = unit(10, "lines"))
-)
-feols(CompletedPrimaryEdu ~ coethnic + urban + female | birth_year + age + EthClusters, data = DHS_PrimSchl, vcov = ~EthClusters)
 
 #--------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------
@@ -528,3 +481,39 @@ ggsave(here("my_paper/figure","DiD-ny-treat-es.pdf"),
        dpi = 500,
        width = 14, 
        height = 7)
+
+#--------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
+# Extended Two-way FE
+#--------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
+mod =
+  etwfe(
+    fml  =  CompletedPrimaryEdu ~ 1, # outcome ~ controls
+    tvar =  birth_year,        # time variable
+    gvar =  first.treat, # group variable
+    data =  DHS_PrimSchl,       # dataset
+    vcov =  ~EthClusters# ,  # vcov adjustment (here: clustered),
+    # ivar =  EthClusters
+    )
+mod_es <- emfx(mod, type = "event")
+
+ggplot(mod_es |> filter(event <= 20), aes(x = event, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_hline(yintercept = 0, color = "red", linetype = "dotted") +
+  geom_line(linewidth = 0.5, alpha = 2, colour = "black") +
+  geom_pointrange(col = "black") +
+  labs(x = "Years post treatment", y = "Effect on primary school completion")+
+  theme(axis.text.y = element_text(size = 9)) +
+  theme(axis.text.x = element_text(size = 9)) +
+  theme(axis.title = element_text(color = "black",  size = 9)) +
+  theme(plot.title = ggtext::element_markdown(size = 9, color = "black", hjust = 0, lineheight = 1.2)) +
+  ggtitle(paste("Extended Two Way Fixed Effects DiD on School Completion"))
+ggsave(paste0(figures_wd,"/DiD-etwfe-treat-es.png"), width = 12, height = 4, units = "in")
+ggsave(paste0(thesis_plots,"/DiD-etwfe-treat-es.png"), width = 12, height = 4, units = "in")
+
+
+emfx(mod)
+emfx(mod, type = "simple")
+emfx(mod, type = "group")
+emfx(mod, type = "calendar")
+

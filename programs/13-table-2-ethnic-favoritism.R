@@ -109,3 +109,103 @@ regression_tab %>%
   save_kable(file.path(thesis_tabs,"tab02-ethnic_fav_tab_ethFE.tex"))
 
 
+#--------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
+# Extended Two-way FE
+#--------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------
+
+# primary school 
+mod =
+  etwfe(
+    fml  = CompletedPrimaryEdu ~ urban + female + age, # outcome ~ controls
+    tvar = birth_year,        # time variable
+    gvar = first.treat, # group variable
+    data = DHS_PrimSchl,       # dataset
+    vcov = ~EthClusters,  # vcov adjustment (here: clustered),
+    ivar =  EthClusters
+    )
+mod_es <- emfx(mod, type = "event")
+
+ggplot(mod_es, aes(x = event, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_hline(yintercept = 0) +
+  geom_pointrange(col = "darkcyan") +
+  labs(x = "Years post treatment", y = "Effect on primary school completion")
+ggsave(paste0(figures_wd,"/DiD-etwfe-treat-es.png"), width = 12, height = 4, units = "in")
+ggsave(paste0(thesis_plots,"/DiD-etwfe-treat-es.png"), width = 12, height = 4, units = "in")
+
+emfx(mod)
+
+# Infant survival
+mod2 =
+  etwfe(
+    fml  = infant_survival     ~ coethnic + kidbord + urban + kidsex, # outcome ~ controls
+    tvar = birth_year,        # time variable
+    gvar = first.treat, # group variable
+    data = DHS_Infantdata_polity_coethnic,       # dataset
+    vcov = ~EthClusters,  # vcov adjustment (here: clustered),
+    ivar =  EthClusters
+    )
+mod2_es <- emfx(mod2, type = "event")
+
+
+ggplot(mod2_es, aes(x = event, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_hline(yintercept = 0) +
+  geom_pointrange(col = "darkcyan") +
+  labs(x = "Years post treatment", y = "Effect on infant survival")
+
+# electrification
+mod4 =
+  etwfe(
+    fml  = Electrification ~ urban + female + age, # outcome ~ controls
+    tvar = birth_year,        # time variable
+    gvar = first.treat, # group variable
+    data = DHS_ElectrificationWater,       # dataset
+    vcov = ~EthClusters,  # vcov adjustment (here: clustered),
+    ivar =  EthClusters
+    )
+mod4_es <- emfx(mod4, type = "event")
+
+
+ggplot(mod4_es, aes(x = event, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_hline(yintercept = 0) +
+  geom_pointrange(col = "darkcyan") +
+  labs(x = "Years post treatment", y = "Effect on electriication")
+
+# water
+mod5 =
+  etwfe(
+    fml  = AccessToWater ~ urban + female + age, # outcome ~ controls
+    tvar = birth_year,        # time variable
+    gvar = first.treat, # group variable
+    data = DHS_ElectrificationWater,       # dataset
+    vcov = ~EthClusters,  # vcov adjustment (here: clustered),
+    ivar =  EthClusters
+    )
+mod5_es <- emfx(mod5, type = "event")
+
+
+ggplot(mod5_es, aes(x = event, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_hline(yintercept = 0) +
+  geom_pointrange(col = "darkcyan") +
+  labs(x = "Years post treatment", y = "Effect on access to clean drinking water")
+
+# wealth
+mod3 =
+  etwfe(
+    fml  = Richest ~ urban + female + age, # outcome ~ controls
+    tvar = birth_year,        # time variable
+    gvar = first.treat, # group variable
+    data = DHS_Wealth,       # dataset
+    vcov = ~EthClusters,  # vcov adjustment (here: clustered),
+    ivar =  EthClusters
+    )
+mod3_es <- emfx(mod3, type = "event")
+
+
+ggplot(mod3_es, aes(x = event, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_hline(yintercept = 0) +
+  geom_pointrange(col = "darkcyan") +
+  labs(x = "Years post treatment", y = "Effect on belonging to the top wealth quintile")
+
+emfx(mod)
